@@ -50,14 +50,9 @@
 //}
 
 
-void EXTI0_IRQHandler(void) __attribute__((interrupt("WCH-Interrupt-fast")));
-volatile uint16_t LED_Status = 0; // 中断里使用的变量加 volatile 可当成全局变量
-void EXTI0_IRQHandler(void)
-{
-    EXTI_ClearFlag(EXTI_Line0); // 置中断标志位为零
-    LED_Status = !LED_Status ;  // 将 LED 状态值取反
-    GPIO_WriteBit(GPIOE, GPIO_Pin_11, LED_Status); // 配置 PE11 (即 LED1) 状态
-}
+
+
+
 
 
 int main(void)
@@ -66,8 +61,10 @@ int main(void)
 //	USART_Printf_Init(115200);
 //	printf("SystemClk:%d\r\n",SystemCoreClock);
 //    system_init();
-    EXTI0_INT_INIT();
+//    EXTI0_INT_INIT();
     GPIO_init();
+    TIM6_Init(5000-1,14400-1);
+    Interrupt_Init();//初始化定时器中断
 //    u16 i=0;
 //    u16 j=1;
 //    Delay_Init();
