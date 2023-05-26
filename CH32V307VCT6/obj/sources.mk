@@ -25,6 +25,7 @@ C_DEPS :=
 SUBDIRS := \
 Core \
 Debug \
+General_File/driver \
 General_File \
 Peripheral/src \
 Startup \

@@ -21,6 +21,7 @@
 #include "debug.h"
 
 #include "../General_File/system.h"
+#include "../General_File/driver/st7789.h"
 
 /* Global typedef */
 
@@ -57,31 +58,14 @@
 
 int main(void)
 {
-//	Delay_Init();
-//	USART_Printf_Init(115200);
-//	printf("SystemClk:%d\r\n",SystemCoreClock);
-//    system_init();
-//    EXTI0_INT_INIT();
-    GPIO_init();
-    TIM6_Init(5000-1,14400-1);
-    Interrupt_Init();//初始化定时器中断
-//    u16 i=0;
-//    u16 j=1;
-//    Delay_Init();
-//    GPIO_WriteBit(GPIOE, GPIO_Pin_11,1);
-//    GPIO_WriteBit(GPIOE, GPIO_Pin_12,1);
+
+    ST7789_GPIO_init();
+    Delay_Init();
+    uint8_t i=0;
 	while(1)
-    {
-////        system_loop();
-//	    Delay_Ms(250);
-//
-//	    GPIO_WriteBit(GPIOE, GPIO_Pin_11, (i==0)?(i=Bit_SET):(i=Bit_RESET));
-//	    Delay_Ms(250);
-//	    GPIO_WriteBit(GPIOE, GPIO_Pin_12, (j==0)?(j=Bit_SET):(j=Bit_RESET));
-//	    EXTI_ClearITPendingBit(EXTI_Line0);
-//	    EXTI0_led();
-
-
+    {   i=!i;
+	    LCD_LED(i);
+	    Delay_Ms(2000);
 	}
 }
 

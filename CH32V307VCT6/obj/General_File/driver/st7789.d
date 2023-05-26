@@ -1,4 +1,4 @@
-User/main.o: ../User/main.c \
+General_File/driver/st7789.o: ../General_File/driver/st7789.c \
  C:\MRS_DATA\workspace\CH32V307VCT6\Debug/debug.h \
  C:\MRS_DATA\workspace\CH32V307VCT6\Peripheral\inc/ch32v30x.h \
  C:\MRS_DATA\workspace\CH32V307VCT6\Core/core_riscv.h \
@@ -28,7 +28,7 @@ User/main.o: ../User/main.c \
  C:\MRS_DATA\workspace\CH32V307VCT6\Peripheral\inc/ch32v30x_wwdg.h \
  C:\MRS_DATA\workspace\CH32V307VCT6\User/ch32v30x_it.h \
  C:\MRS_DATA\workspace\CH32V307VCT6\Peripheral\inc/ch32v30x_misc.h \
- ../User/../General_File/system.h ../User/../General_File/driver/st7789.h
+ ../General_File/driver/st7789.h
 
 C:\MRS_DATA\workspace\CH32V307VCT6\Debug/debug.h:
 
@@ -88,6 +88,4 @@ C:\MRS_DATA\workspace\CH32V307VCT6\User/ch32v30x_it.h:
 
 C:\MRS_DATA\workspace\CH32V307VCT6\Peripheral\inc/ch32v30x_misc.h:
 
-../User/../General_File/system.h:
-
-../User/../General_File/driver/st7789.h:
+../General_File/driver/st7789.h:

@@ -155,5 +155,81 @@ void TIM6_Init( u16 arr, u16 psc)
      TIM_ARRPreloadConfig( TIM6, ENABLE );
      TIM_Cmd( TIM6, ENABLE );
   }
+uint32_t time =0;
+typedef enum{
+    key_up,
+    key_downshake,
+    key_down,
+    key_upshake
 
+}state_t;
+
+typedef struct{
+    state_t state;//四种按键状态
+    uint8_t volatile cnt;//事件计时
+    uint8_t auxiliary_flag;//状态机辅助位,判断双击，初始化为零
+}value_t;
+
+typedef enum{
+    key_null,
+    key_click,
+    key_doucli,
+    key_long
+
+}key_event_all;
+
+
+value_t value={key_up,0,0};
+uint8_t key_event=key_null;//按键的事件
+
+/*判断按键状态
+ *
+ * */
+void key_scan(void){
+    if(value.cnt>5){
+        value.cnt=0;
+        switch(value.state){
+            case key_up:{
+                if(value.auxiliary_flag){
+                    if(value.cnt>500){
+                        key_event=key_doucli;
+                    }else{
+                        key_event=key_click;
+                    }
+
+                    value.auxiliary_flag=0;
+
+                }
+                break;
+            }
+            case key_upshake:{
+                break;
+            }
+            case key_down:{
+                break;
+            }
+            case key_downshake:{
+                break;
+            }
+        }
+
+    }
+
+}
+/*按键形式不同，led 闪烁不同
+ * 单击亮暗切换
+ * 双击常量
+ * 长按两灯（led1&led2）交替闪烁
+ *
+*/
+void key_led_multi(){
+
+    if(key_event==key_click){
+
+    }else if(key_event==key_doucli){
+
+    }else if(key_event==key_long){
+
+    }
+}
 
