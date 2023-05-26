@@ -5,12 +5,15 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../General_File/driver/font.c \
 ../General_File/driver/st7789.c 
 
 OBJS += \
+./General_File/driver/font.o \
 ./General_File/driver/st7789.o 
 
 C_DEPS += \
+./General_File/driver/font.d \
 ./General_File/driver/st7789.d 
 
 

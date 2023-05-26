@@ -22,6 +22,7 @@
 
 #include "../General_File/system.h"
 #include "../General_File/driver/st7789.h"
+#include "../General_File/driver/font.h"
 
 /* Global typedef */
 
@@ -59,13 +60,26 @@
 int main(void)
 {
 
-    ST7789_GPIO_init();
-    Delay_Init();
-    uint8_t i=0;
-	while(1)
-    {   i=!i;
-	    LCD_LED(i);
-	    Delay_Ms(2000);
-	}
+//    ST7789_GPIO_init();
+//    Delay_Init();
+//    uint8_t i=0;
+//	while(1)
+//    {   i=!i;
+//	    LCD_LED(i);
+//	    Delay_Ms(2000);
+//	}
+    u16 YELLOW=0xff00;
+    lcd_init();
+    lcd_clear(YELLOW);
+
+        while(1)
+        {
+            lcd_show_string(66, 0, 108, 12, "IoT Board", 24, 1);
+//            lcd_show_chinese(72, 32, pandora_ch, 32, 3, 1);
+            delay_ms(1000);
+            lcd_clear(YELLOW);
+            delay_ms(1000);
+
+        }
 }
 

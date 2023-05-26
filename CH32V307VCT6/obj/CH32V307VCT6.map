@@ -1,7 +1,7 @@
 Archive member included to satisfy reference by file (symbol)
 
 c:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(save-restore.o)
-                              ./Peripheral/src/ch32v30x_flash.o (__riscv_save_4)
+                              ./General_File/driver/st7789.o (__riscv_save_12)
 
 Discarded input sections
 
@@ -18,6 +18,8 @@ Discarded input sections
                 0x0000000000000000       0xbe ./User/system_ch32v30x.o
  .data.AHBPrescTable
                 0x0000000000000000       0x10 ./User/system_ch32v30x.o
+ .sdata.SystemCoreClock
+                0x0000000000000000        0x4 ./User/system_ch32v30x.o
  .text          0x0000000000000000        0x0 ./Startup/startup_ch32v30x_D8C.o
  .data          0x0000000000000000        0x0 ./Startup/startup_ch32v30x_D8C.o
  .bss           0x0000000000000000        0x0 ./Startup/startup_ch32v30x_D8C.o
@@ -1503,13 +1505,18 @@ Discarded input sections
  .debug_str     0x0000000000000000      0x69d ./Peripheral/src/ch32v30x_wwdg.o
  .comment       0x0000000000000000       0x34 ./Peripheral/src/ch32v30x_wwdg.o
  .debug_frame   0x0000000000000000       0xa4 ./Peripheral/src/ch32v30x_wwdg.o
+ .text          0x0000000000000000        0x0 ./General_File/driver/font.o
+ .data          0x0000000000000000        0x0 ./General_File/driver/font.o
+ .bss           0x0000000000000000        0x0 ./General_File/driver/font.o
+ .rodata.asc2_4824
+                0x0000000000000000     0x3570 ./General_File/driver/font.o
+ .rodata.pandora_ch
+                0x0000000000000000      0x180 ./General_File/driver/font.o
  .text          0x0000000000000000        0x0 ./General_File/driver/st7789.o
  .data          0x0000000000000000        0x0 ./General_File/driver/st7789.o
  .bss           0x0000000000000000        0x0 ./General_File/driver/st7789.o
- .text.lcd_write_reg
-                0x0000000000000000        0x2 ./General_File/driver/st7789.o
- .text.lcd_write_data
-                0x0000000000000000        0x2 ./General_File/driver/st7789.o
+ .text.lcd_show_chinese
+                0x0000000000000000       0x98 ./General_File/driver/st7789.o
  .text          0x0000000000000000        0x0 ./General_File/system.o
  .data          0x0000000000000000        0x0 ./General_File/system.o
  .bss           0x0000000000000000        0x0 ./General_File/system.o
@@ -1536,12 +1543,15 @@ Discarded input sections
  .text          0x0000000000000000        0x0 ./Debug/debug.o
  .data          0x0000000000000000        0x0 ./Debug/debug.o
  .bss           0x0000000000000000        0x0 ./Debug/debug.o
+ .text.Delay_Init
+                0x0000000000000000       0x32 ./Debug/debug.o
  .text.Delay_Us
                 0x0000000000000000       0x3a ./Debug/debug.o
  .text.USART_Printf_Init
                 0x0000000000000000       0x72 ./Debug/debug.o
  .text._write   0x0000000000000000       0x4e ./Debug/debug.o
  .text._sbrk    0x0000000000000000       0x2e ./Debug/debug.o
+ .sbss.p_us     0x0000000000000000        0x1 ./Debug/debug.o
  .sdata.curbrk.5218
                 0x0000000000000000        0x4 ./Debug/debug.o
  .text          0x0000000000000000        0x0 ./Core/core_riscv.o
@@ -1649,6 +1659,7 @@ LOAD ./Peripheral/src/ch32v30x_spi.o
 LOAD ./Peripheral/src/ch32v30x_tim.o
 LOAD ./Peripheral/src/ch32v30x_usart.o
 LOAD ./Peripheral/src/ch32v30x_wwdg.o
+LOAD ./General_File/driver/font.o
 LOAD ./General_File/driver/st7789.o
 LOAD ./General_File/system.o
 LOAD ./Debug/debug.o
@@ -1686,7 +1697,7 @@ END GROUP
                 0x0000000000000200                . = ALIGN (0x40)
  *fill*         0x00000000000001d8       0x28 
 
-.text           0x0000000000000200      0x474
+.text           0x0000000000000200     0x34b4
                 0x0000000000000200                . = ALIGN (0x4)
  *(.text)
  .text          0x0000000000000200       0x60 c:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(save-restore.o)
@@ -1724,167 +1735,209 @@ END GROUP
                 0x0000000000000264        0x2 ./User/ch32v30x_it.o
                 0x0000000000000264                HardFault_Handler
  .text.startup.main
-                0x0000000000000266       0x2e ./User/main.o
+                0x0000000000000266       0x46 ./User/main.o
                 0x0000000000000266                main
  .text.SystemInit
-                0x0000000000000294       0xb2 ./User/system_ch32v30x.o
-                0x0000000000000294                SystemInit
+                0x00000000000002ac       0xb2 ./User/system_ch32v30x.o
+                0x00000000000002ac                SystemInit
  .text.vector_handler
-                0x0000000000000346       0xbe ./Startup/startup_ch32v30x_D8C.o
-                0x000000000000034a                Ecall_M_Mode_Handler
-                0x000000000000034c                Ecall_U_Mode_Handler
-                0x000000000000034e                Break_Point_Handler
-                0x0000000000000350                SysTick_Handler
-                0x0000000000000352                SW_Handler
-                0x0000000000000354                WWDG_IRQHandler
-                0x0000000000000356                PVD_IRQHandler
-                0x0000000000000358                TAMPER_IRQHandler
-                0x000000000000035a                RTC_IRQHandler
-                0x000000000000035c                FLASH_IRQHandler
-                0x000000000000035e                RCC_IRQHandler
-                0x0000000000000362                EXTI1_IRQHandler
-                0x0000000000000364                EXTI2_IRQHandler
-                0x0000000000000366                EXTI3_IRQHandler
-                0x0000000000000368                EXTI4_IRQHandler
-                0x000000000000036a                DMA1_Channel1_IRQHandler
-                0x000000000000036c                DMA1_Channel2_IRQHandler
-                0x000000000000036e                DMA1_Channel3_IRQHandler
-                0x0000000000000370                DMA1_Channel4_IRQHandler
-                0x0000000000000372                DMA1_Channel5_IRQHandler
-                0x0000000000000374                DMA1_Channel6_IRQHandler
-                0x0000000000000376                DMA1_Channel7_IRQHandler
-                0x0000000000000378                ADC1_2_IRQHandler
-                0x000000000000037a                USB_HP_CAN1_TX_IRQHandler
-                0x000000000000037c                USB_LP_CAN1_RX0_IRQHandler
-                0x000000000000037e                CAN1_RX1_IRQHandler
-                0x0000000000000380                CAN1_SCE_IRQHandler
-                0x0000000000000382                EXTI9_5_IRQHandler
-                0x0000000000000384                TIM1_BRK_IRQHandler
-                0x0000000000000386                TIM1_UP_IRQHandler
-                0x0000000000000388                TIM1_TRG_COM_IRQHandler
-                0x000000000000038a                TIM1_CC_IRQHandler
-                0x000000000000038c                TIM2_IRQHandler
-                0x000000000000038e                TIM3_IRQHandler
-                0x0000000000000390                TIM4_IRQHandler
-                0x0000000000000392                I2C1_EV_IRQHandler
-                0x0000000000000394                I2C1_ER_IRQHandler
-                0x0000000000000396                I2C2_EV_IRQHandler
-                0x0000000000000398                I2C2_ER_IRQHandler
-                0x000000000000039a                SPI1_IRQHandler
-                0x000000000000039c                SPI2_IRQHandler
-                0x000000000000039e                USART1_IRQHandler
-                0x00000000000003a0                USART2_IRQHandler
-                0x00000000000003a2                USART3_IRQHandler
-                0x00000000000003a4                EXTI15_10_IRQHandler
-                0x00000000000003a6                RTCAlarm_IRQHandler
-                0x00000000000003a8                USBWakeUp_IRQHandler
-                0x00000000000003aa                TIM8_BRK_IRQHandler
-                0x00000000000003ac                TIM8_UP_IRQHandler
-                0x00000000000003ae                TIM8_TRG_COM_IRQHandler
-                0x00000000000003b0                TIM8_CC_IRQHandler
-                0x00000000000003b2                RNG_IRQHandler
-                0x00000000000003b4                FSMC_IRQHandler
-                0x00000000000003b6                SDIO_IRQHandler
-                0x00000000000003b8                TIM5_IRQHandler
-                0x00000000000003ba                SPI3_IRQHandler
-                0x00000000000003bc                UART4_IRQHandler
-                0x00000000000003be                UART5_IRQHandler
-                0x00000000000003c2                TIM7_IRQHandler
-                0x00000000000003c4                DMA2_Channel1_IRQHandler
-                0x00000000000003c6                DMA2_Channel2_IRQHandler
-                0x00000000000003c8                DMA2_Channel3_IRQHandler
-                0x00000000000003ca                DMA2_Channel4_IRQHandler
-                0x00000000000003cc                DMA2_Channel5_IRQHandler
-                0x00000000000003ce                ETH_IRQHandler
-                0x00000000000003d0                ETH_WKUP_IRQHandler
-                0x00000000000003d2                CAN2_TX_IRQHandler
-                0x00000000000003d4                CAN2_RX0_IRQHandler
-                0x00000000000003d6                CAN2_RX1_IRQHandler
-                0x00000000000003d8                CAN2_SCE_IRQHandler
-                0x00000000000003da                OTG_FS_IRQHandler
-                0x00000000000003dc                USBHSWakeup_IRQHandler
-                0x00000000000003de                USBHS_IRQHandler
-                0x00000000000003e0                DVP_IRQHandler
-                0x00000000000003e2                UART6_IRQHandler
-                0x00000000000003e4                UART7_IRQHandler
-                0x00000000000003e6                UART8_IRQHandler
-                0x00000000000003e8                TIM9_BRK_IRQHandler
-                0x00000000000003ea                TIM9_UP_IRQHandler
-                0x00000000000003ec                TIM9_TRG_COM_IRQHandler
-                0x00000000000003ee                TIM9_CC_IRQHandler
-                0x00000000000003f0                TIM10_BRK_IRQHandler
-                0x00000000000003f2                TIM10_UP_IRQHandler
-                0x00000000000003f4                TIM10_TRG_COM_IRQHandler
-                0x00000000000003f6                TIM10_CC_IRQHandler
-                0x00000000000003f8                DMA2_Channel6_IRQHandler
-                0x00000000000003fa                DMA2_Channel7_IRQHandler
-                0x00000000000003fc                DMA2_Channel8_IRQHandler
-                0x00000000000003fe                DMA2_Channel9_IRQHandler
-                0x0000000000000400                DMA2_Channel10_IRQHandler
-                0x0000000000000402                DMA2_Channel11_IRQHandler
+                0x000000000000035e       0xbe ./Startup/startup_ch32v30x_D8C.o
+                0x0000000000000362                Ecall_M_Mode_Handler
+                0x0000000000000364                Ecall_U_Mode_Handler
+                0x0000000000000366                Break_Point_Handler
+                0x0000000000000368                SysTick_Handler
+                0x000000000000036a                SW_Handler
+                0x000000000000036c                WWDG_IRQHandler
+                0x000000000000036e                PVD_IRQHandler
+                0x0000000000000370                TAMPER_IRQHandler
+                0x0000000000000372                RTC_IRQHandler
+                0x0000000000000374                FLASH_IRQHandler
+                0x0000000000000376                RCC_IRQHandler
+                0x000000000000037a                EXTI1_IRQHandler
+                0x000000000000037c                EXTI2_IRQHandler
+                0x000000000000037e                EXTI3_IRQHandler
+                0x0000000000000380                EXTI4_IRQHandler
+                0x0000000000000382                DMA1_Channel1_IRQHandler
+                0x0000000000000384                DMA1_Channel2_IRQHandler
+                0x0000000000000386                DMA1_Channel3_IRQHandler
+                0x0000000000000388                DMA1_Channel4_IRQHandler
+                0x000000000000038a                DMA1_Channel5_IRQHandler
+                0x000000000000038c                DMA1_Channel6_IRQHandler
+                0x000000000000038e                DMA1_Channel7_IRQHandler
+                0x0000000000000390                ADC1_2_IRQHandler
+                0x0000000000000392                USB_HP_CAN1_TX_IRQHandler
+                0x0000000000000394                USB_LP_CAN1_RX0_IRQHandler
+                0x0000000000000396                CAN1_RX1_IRQHandler
+                0x0000000000000398                CAN1_SCE_IRQHandler
+                0x000000000000039a                EXTI9_5_IRQHandler
+                0x000000000000039c                TIM1_BRK_IRQHandler
+                0x000000000000039e                TIM1_UP_IRQHandler
+                0x00000000000003a0                TIM1_TRG_COM_IRQHandler
+                0x00000000000003a2                TIM1_CC_IRQHandler
+                0x00000000000003a4                TIM2_IRQHandler
+                0x00000000000003a6                TIM3_IRQHandler
+                0x00000000000003a8                TIM4_IRQHandler
+                0x00000000000003aa                I2C1_EV_IRQHandler
+                0x00000000000003ac                I2C1_ER_IRQHandler
+                0x00000000000003ae                I2C2_EV_IRQHandler
+                0x00000000000003b0                I2C2_ER_IRQHandler
+                0x00000000000003b2                SPI1_IRQHandler
+                0x00000000000003b4                SPI2_IRQHandler
+                0x00000000000003b6                USART1_IRQHandler
+                0x00000000000003b8                USART2_IRQHandler
+                0x00000000000003ba                USART3_IRQHandler
+                0x00000000000003bc                EXTI15_10_IRQHandler
+                0x00000000000003be                RTCAlarm_IRQHandler
+                0x00000000000003c0                USBWakeUp_IRQHandler
+                0x00000000000003c2                TIM8_BRK_IRQHandler
+                0x00000000000003c4                TIM8_UP_IRQHandler
+                0x00000000000003c6                TIM8_TRG_COM_IRQHandler
+                0x00000000000003c8                TIM8_CC_IRQHandler
+                0x00000000000003ca                RNG_IRQHandler
+                0x00000000000003cc                FSMC_IRQHandler
+                0x00000000000003ce                SDIO_IRQHandler
+                0x00000000000003d0                TIM5_IRQHandler
+                0x00000000000003d2                SPI3_IRQHandler
+                0x00000000000003d4                UART4_IRQHandler
+                0x00000000000003d6                UART5_IRQHandler
+                0x00000000000003da                TIM7_IRQHandler
+                0x00000000000003dc                DMA2_Channel1_IRQHandler
+                0x00000000000003de                DMA2_Channel2_IRQHandler
+                0x00000000000003e0                DMA2_Channel3_IRQHandler
+                0x00000000000003e2                DMA2_Channel4_IRQHandler
+                0x00000000000003e4                DMA2_Channel5_IRQHandler
+                0x00000000000003e6                ETH_IRQHandler
+                0x00000000000003e8                ETH_WKUP_IRQHandler
+                0x00000000000003ea                CAN2_TX_IRQHandler
+                0x00000000000003ec                CAN2_RX0_IRQHandler
+                0x00000000000003ee                CAN2_RX1_IRQHandler
+                0x00000000000003f0                CAN2_SCE_IRQHandler
+                0x00000000000003f2                OTG_FS_IRQHandler
+                0x00000000000003f4                USBHSWakeup_IRQHandler
+                0x00000000000003f6                USBHS_IRQHandler
+                0x00000000000003f8                DVP_IRQHandler
+                0x00000000000003fa                UART6_IRQHandler
+                0x00000000000003fc                UART7_IRQHandler
+                0x00000000000003fe                UART8_IRQHandler
+                0x0000000000000400                TIM9_BRK_IRQHandler
+                0x0000000000000402                TIM9_UP_IRQHandler
+                0x0000000000000404                TIM9_TRG_COM_IRQHandler
+                0x0000000000000406                TIM9_CC_IRQHandler
+                0x0000000000000408                TIM10_BRK_IRQHandler
+                0x000000000000040a                TIM10_UP_IRQHandler
+                0x000000000000040c                TIM10_TRG_COM_IRQHandler
+                0x000000000000040e                TIM10_CC_IRQHandler
+                0x0000000000000410                DMA2_Channel6_IRQHandler
+                0x0000000000000412                DMA2_Channel7_IRQHandler
+                0x0000000000000414                DMA2_Channel8_IRQHandler
+                0x0000000000000416                DMA2_Channel9_IRQHandler
+                0x0000000000000418                DMA2_Channel10_IRQHandler
+                0x000000000000041a                DMA2_Channel11_IRQHandler
  .text.handle_reset
-                0x0000000000000404       0x86 ./Startup/startup_ch32v30x_D8C.o
-                0x0000000000000404                handle_reset
+                0x000000000000041c       0x8a ./Startup/startup_ch32v30x_D8C.o
+                0x000000000000041c                handle_reset
  .text.EXTI_ClearFlag
-                0x000000000000048a        0xa ./Peripheral/src/ch32v30x_exti.o
-                0x000000000000048a                EXTI_ClearFlag
+                0x00000000000004a6        0xa ./Peripheral/src/ch32v30x_exti.o
+                0x00000000000004a6                EXTI_ClearFlag
  .text.GPIO_Init
-                0x0000000000000494       0xc0 ./Peripheral/src/ch32v30x_gpio.o
-                0x0000000000000494                GPIO_Init
+                0x00000000000004b0       0xc0 ./Peripheral/src/ch32v30x_gpio.o
+                0x00000000000004b0                GPIO_Init
  .text.GPIO_WriteBit
-                0x0000000000000554        0xa ./Peripheral/src/ch32v30x_gpio.o
-                0x0000000000000554                GPIO_WriteBit
+                0x0000000000000570        0xa ./Peripheral/src/ch32v30x_gpio.o
+                0x0000000000000570                GPIO_WriteBit
  .text.RCC_APB2PeriphClockCmd
-                0x000000000000055e       0x1e ./Peripheral/src/ch32v30x_rcc.o
-                0x000000000000055e                RCC_APB2PeriphClockCmd
+                0x000000000000057a       0x1e ./Peripheral/src/ch32v30x_rcc.o
+                0x000000000000057a                RCC_APB2PeriphClockCmd
  .text.TIM_ClearFlag
-                0x000000000000057c        0xc ./Peripheral/src/ch32v30x_tim.o
-                0x000000000000057c                TIM_ClearFlag
+                0x0000000000000598        0xc ./Peripheral/src/ch32v30x_tim.o
+                0x0000000000000598                TIM_ClearFlag
  .text.ST7789_GPIO_init
-                0x0000000000000588       0x34 ./General_File/driver/st7789.o
-                0x0000000000000588                ST7789_GPIO_init
+                0x00000000000005a4       0x78 ./General_File/driver/st7789.o
+                0x00000000000005a4                ST7789_GPIO_init
+ .text.lcd_write_reg
+                0x000000000000061c       0x7e ./General_File/driver/st7789.o
+                0x000000000000061c                lcd_write_reg
+ .text.lcd_write_data
+                0x000000000000069a       0x7e ./General_File/driver/st7789.o
+                0x000000000000069a                lcd_write_data
+ .text.lcd_write_ram
+                0x0000000000000718        0xc ./General_File/driver/st7789.o
+                0x0000000000000718                lcd_write_ram
+ .text.lcd_set_address
+                0x0000000000000724       0x4a ./General_File/driver/st7789.o
+                0x0000000000000724                lcd_set_address
+ .text.lcd_display_on
+                0x000000000000076e       0x1a ./General_File/driver/st7789.o
+                0x000000000000076e                lcd_display_on
+ .text.lcd_display_off
+                0x0000000000000788       0x1a ./General_File/driver/st7789.o
+                0x0000000000000788                lcd_display_off
+ .text.lcd_clear
+                0x00000000000007a2       0x44 ./General_File/driver/st7789.o
+                0x00000000000007a2                lcd_clear
+ .text.lcd_draw_point
+                0x00000000000007e6       0x1c ./General_File/driver/st7789.o
+                0x00000000000007e6                lcd_draw_point
+ .text.lcd_show_char
+                0x0000000000000802      0x112 ./General_File/driver/st7789.o
+                0x0000000000000802                lcd_show_char
+ .text.lcd_show_string
+                0x0000000000000914       0x6c ./General_File/driver/st7789.o
+                0x0000000000000914                lcd_show_string
+ .text.lcd_init
+                0x0000000000000980      0x184 ./General_File/driver/st7789.o
+                0x0000000000000980                lcd_init
  .text.EXTI0_IRQHandler
-                0x00000000000005bc       0x2a ./General_File/system.o
-                0x00000000000005bc                EXTI0_IRQHandler
+                0x0000000000000b04       0x2e ./General_File/system.o
+                0x0000000000000b04                EXTI0_IRQHandler
  .text.TIM6_IRQHandler
-                0x00000000000005e6       0x2e ./General_File/system.o
-                0x00000000000005e6                TIM6_IRQHandler
- .text.Delay_Init
-                0x0000000000000614       0x2a ./Debug/debug.o
-                0x0000000000000614                Delay_Init
+                0x0000000000000b32       0x32 ./General_File/system.o
+                0x0000000000000b32                TIM6_IRQHandler
  .text.Delay_Ms
-                0x000000000000063e       0x36 ./Debug/debug.o
-                0x000000000000063e                Delay_Ms
+                0x0000000000000b64       0x36 ./Debug/debug.o
+                0x0000000000000b64                Delay_Ms
  *(.rodata)
  *(.rodata*)
+ *fill*         0x0000000000000b9a        0x2 
+ .rodata.main.str1.4
+                0x0000000000000b9c        0xc ./User/main.o
+                                          0xa (size before relaxing)
+ .rodata.asc2_1608
+                0x0000000000000ba8      0x5f0 ./General_File/driver/font.o
+                0x0000000000000ba8                asc2_1608
+ .rodata.asc2_2412
+                0x0000000000001198      0xd5c ./General_File/driver/font.o
+                0x0000000000001198                asc2_2412
+ .rodata.asc2_3216
+                0x0000000000001ef4     0x17c0 ./General_File/driver/font.o
+                0x0000000000001ef4                asc2_3216
  *(.gnu.linkonce.t.*)
-                0x0000000000000674                . = ALIGN (0x4)
- *fill*         0x0000000000000674        0x0 
+                0x00000000000036b4                . = ALIGN (0x4)
 
-.rela.dyn       0x0000000000000674        0x0
- .rela.init     0x0000000000000674        0x0 ./User/ch32v30x_it.o
- .rela.vector   0x0000000000000674        0x0 ./User/ch32v30x_it.o
+.rela.dyn       0x00000000000036b4        0x0
+ .rela.init     0x00000000000036b4        0x0 ./User/ch32v30x_it.o
+ .rela.vector   0x00000000000036b4        0x0 ./User/ch32v30x_it.o
  .rela.text.handle_reset
-                0x0000000000000674        0x0 ./User/ch32v30x_it.o
+                0x00000000000036b4        0x0 ./User/ch32v30x_it.o
 
-.fini           0x0000000000000674        0x0
+.fini           0x00000000000036b4        0x0
  *(SORT_NONE(.fini))
-                0x0000000000000674                . = ALIGN (0x4)
+                0x00000000000036b4                . = ALIGN (0x4)
                 [!provide]                        PROVIDE (_etext = .)
                 [!provide]                        PROVIDE (_eitcm = .)
 
-.preinit_array  0x0000000000000674        0x0
+.preinit_array  0x00000000000036b4        0x0
                 [!provide]                        PROVIDE (__preinit_array_start = .)
  *(.preinit_array)
                 [!provide]                        PROVIDE (__preinit_array_end = .)
 
-.init_array     0x0000000000000674        0x0
+.init_array     0x00000000000036b4        0x0
                 [!provide]                        PROVIDE (__init_array_start = .)
  *(SORT_BY_INIT_PRIORITY(.init_array.*) SORT_BY_INIT_PRIORITY(.ctors.*))
  *(.init_array EXCLUDE_FILE(*crtend?.o *crtend.o *crtbegin?.o *crtbegin.o) .ctors)
                 [!provide]                        PROVIDE (__init_array_end = .)
 
-.fini_array     0x0000000000000674        0x0
+.fini_array     0x00000000000036b4        0x0
                 [!provide]                        PROVIDE (__fini_array_start = .)
  *(SORT_BY_INIT_PRIORITY(.fini_array.*) SORT_BY_INIT_PRIORITY(.dtors.*))
  *(.fini_array EXCLUDE_FILE(*crtend?.o *crtend.o *crtbegin?.o *crtbegin.o) .dtors)
@@ -1904,28 +1957,28 @@ END GROUP
  *(SORT_BY_NAME(.dtors.*))
  *(.dtors)
 
-.dalign         0x0000000020000000        0x0 load address 0x0000000000000674
+.dalign         0x0000000020000000        0x0 load address 0x00000000000036b4
                 0x0000000020000000                . = ALIGN (0x4)
                 0x0000000020000000                PROVIDE (_data_vma = .)
 
-.dlalign        0x0000000000000674        0x0
-                0x0000000000000674                . = ALIGN (0x4)
-                0x0000000000000674                PROVIDE (_data_lma = .)
+.dlalign        0x00000000000036b4        0x0
+                0x00000000000036b4                . = ALIGN (0x4)
+                0x00000000000036b4                PROVIDE (_data_lma = .)
 
-.data           0x0000000020000000        0x8 load address 0x0000000000000674
+.data           0x0000000020000000        0x8 load address 0x00000000000036b4
  *(.gnu.linkonce.r.*)
  *(.data .data.*)
  *(.gnu.linkonce.d.*)
                 0x0000000020000000                . = ALIGN (0x8)
                 0x0000000020000800                PROVIDE (__global_pointer$ = (. + 0x800))
  *(.sdata .sdata.*)
- .sdata.SystemCoreClock
-                0x0000000020000000        0x4 ./User/system_ch32v30x.o
-                0x0000000020000000                SystemCoreClock
+ .sdata.BACK_COLOR
+                0x0000000020000000        0x2 ./General_File/driver/st7789.o
+                0x0000000020000000                BACK_COLOR
  *(.sdata2.*)
  *(.gnu.linkonce.s.*)
                 0x0000000020000008                . = ALIGN (0x8)
- *fill*         0x0000000020000004        0x4 
+ *fill*         0x0000000020000002        0x6 
  *(.srodata.cst16)
  *(.srodata.cst8)
  *(.srodata.cst4)
@@ -1934,21 +1987,23 @@ END GROUP
                 0x0000000020000008                . = ALIGN (0x4)
                 0x0000000020000008                PROVIDE (_edata = .)
 
-.bss            0x0000000020000008        0x8 load address 0x000000000000067c
+.bss            0x0000000020000008        0x8 load address 0x00000000000036bc
                 0x0000000020000008                . = ALIGN (0x4)
                 0x0000000020000008                PROVIDE (_sbss = .)
  *(.sbss*)
+ .sbss.POINT_COLOR
+                0x0000000020000008        0x2 ./General_File/driver/st7789.o
+                0x0000000020000008                POINT_COLOR
  .sbss.LED_Status
-                0x0000000020000008        0x2 ./General_File/system.o
-                0x0000000020000008                LED_Status
- .sbss.p_ms     0x000000002000000a        0x2 ./Debug/debug.o
- .sbss.p_us     0x000000002000000c        0x1 ./Debug/debug.o
+                0x000000002000000a        0x2 ./General_File/system.o
+                0x000000002000000a                LED_Status
+ .sbss.p_ms     0x000000002000000c        0x2 ./Debug/debug.o
  *(.gnu.linkonce.sb.*)
  *(.bss*)
  *(.gnu.linkonce.b.*)
  *(COMMON*)
                 0x0000000020000010                . = ALIGN (0x4)
- *fill*         0x000000002000000d        0x3 
+ *fill*         0x000000002000000e        0x2 
                 0x0000000020000010                PROVIDE (_ebss = .)
                 0x0000000020000010                PROVIDE (_end = _ebss)
                 [!provide]                        PROVIDE (end = .)
@@ -1962,33 +2017,35 @@ END GROUP
                 0x0000000020008000                PROVIDE (_eusrstack = .)
 OUTPUT(CH32V307VCT6.elf elf32-littleriscv)
 
-.debug_info     0x0000000000000000     0xab10
+.debug_info     0x0000000000000000     0xc4c5
  .debug_info    0x0000000000000000      0x962 ./User/ch32v30x_it.o
- .debug_info    0x0000000000000962      0xa9f ./User/main.o
- .debug_info    0x0000000000001401      0xb3b ./User/system_ch32v30x.o
- .debug_info    0x0000000000001f3c       0x22 ./Startup/startup_ch32v30x_D8C.o
- .debug_info    0x0000000000001f5e      0xc0d ./Peripheral/src/ch32v30x_exti.o
- .debug_info    0x0000000000002b6b     0x1093 ./Peripheral/src/ch32v30x_gpio.o
- .debug_info    0x0000000000003bfe     0x156e ./Peripheral/src/ch32v30x_rcc.o
- .debug_info    0x000000000000516c     0x2a16 ./Peripheral/src/ch32v30x_tim.o
- .debug_info    0x0000000000007b82      0xb36 ./General_File/driver/st7789.o
- .debug_info    0x00000000000086b8     0x153c ./General_File/system.o
- .debug_info    0x0000000000009bf4      0xf1c ./Debug/debug.o
+ .debug_info    0x0000000000000962      0xb31 ./User/main.o
+ .debug_info    0x0000000000001493      0xb3b ./User/system_ch32v30x.o
+ .debug_info    0x0000000000001fce       0x22 ./Startup/startup_ch32v30x_D8C.o
+ .debug_info    0x0000000000001ff0      0xc0d ./Peripheral/src/ch32v30x_exti.o
+ .debug_info    0x0000000000002bfd     0x1093 ./Peripheral/src/ch32v30x_gpio.o
+ .debug_info    0x0000000000003c90     0x156e ./Peripheral/src/ch32v30x_rcc.o
+ .debug_info    0x00000000000051fe     0x2a16 ./Peripheral/src/ch32v30x_tim.o
+ .debug_info    0x0000000000007c14      0xa3b ./General_File/driver/font.o
+ .debug_info    0x000000000000864f     0x1a1e ./General_File/driver/st7789.o
+ .debug_info    0x000000000000a06d     0x153c ./General_File/system.o
+ .debug_info    0x000000000000b5a9      0xf1c ./Debug/debug.o
 
-.debug_abbrev   0x0000000000000000     0x1ccd
+.debug_abbrev   0x0000000000000000     0x1f57
  .debug_abbrev  0x0000000000000000      0x1cf ./User/ch32v30x_it.o
- .debug_abbrev  0x00000000000001cf      0x263 ./User/main.o
- .debug_abbrev  0x0000000000000432      0x2b0 ./User/system_ch32v30x.o
- .debug_abbrev  0x00000000000006e2       0x12 ./Startup/startup_ch32v30x_D8C.o
- .debug_abbrev  0x00000000000006f4      0x2da ./Peripheral/src/ch32v30x_exti.o
- .debug_abbrev  0x00000000000009ce      0x309 ./Peripheral/src/ch32v30x_gpio.o
- .debug_abbrev  0x0000000000000cd7      0x351 ./Peripheral/src/ch32v30x_rcc.o
- .debug_abbrev  0x0000000000001028      0x408 ./Peripheral/src/ch32v30x_tim.o
- .debug_abbrev  0x0000000000001430      0x294 ./General_File/driver/st7789.o
- .debug_abbrev  0x00000000000016c4      0x310 ./General_File/system.o
- .debug_abbrev  0x00000000000019d4      0x2f9 ./Debug/debug.o
+ .debug_abbrev  0x00000000000001cf      0x25d ./User/main.o
+ .debug_abbrev  0x000000000000042c      0x2b0 ./User/system_ch32v30x.o
+ .debug_abbrev  0x00000000000006dc       0x12 ./Startup/startup_ch32v30x_D8C.o
+ .debug_abbrev  0x00000000000006ee      0x2da ./Peripheral/src/ch32v30x_exti.o
+ .debug_abbrev  0x00000000000009c8      0x309 ./Peripheral/src/ch32v30x_gpio.o
+ .debug_abbrev  0x0000000000000cd1      0x351 ./Peripheral/src/ch32v30x_rcc.o
+ .debug_abbrev  0x0000000000001022      0x408 ./Peripheral/src/ch32v30x_tim.o
+ .debug_abbrev  0x000000000000142a      0x1d4 ./General_File/driver/font.o
+ .debug_abbrev  0x00000000000015fe      0x350 ./General_File/driver/st7789.o
+ .debug_abbrev  0x000000000000194e      0x310 ./General_File/system.o
+ .debug_abbrev  0x0000000000001c5e      0x2f9 ./Debug/debug.o
 
-.debug_aranges  0x0000000000000000      0x6e8
+.debug_aranges  0x0000000000000000      0x758
  .debug_aranges
                 0x0000000000000000       0x28 ./User/ch32v30x_it.o
  .debug_aranges
@@ -2006,60 +2063,65 @@ OUTPUT(CH32V307VCT6.elf elf32-littleriscv)
  .debug_aranges
                 0x0000000000000340      0x2d0 ./Peripheral/src/ch32v30x_tim.o
  .debug_aranges
-                0x0000000000000610       0x28 ./General_File/driver/st7789.o
+                0x0000000000000610       0x18 ./General_File/driver/font.o
  .debug_aranges
-                0x0000000000000638       0x68 ./General_File/system.o
+                0x0000000000000628       0x80 ./General_File/driver/st7789.o
  .debug_aranges
-                0x00000000000006a0       0x48 ./Debug/debug.o
+                0x00000000000006a8       0x68 ./General_File/system.o
+ .debug_aranges
+                0x0000000000000710       0x48 ./Debug/debug.o
 
-.debug_ranges   0x0000000000000000      0x670
+.debug_ranges   0x0000000000000000      0x6e0
  .debug_ranges  0x0000000000000000       0x18 ./User/ch32v30x_it.o
- .debug_ranges  0x0000000000000018       0x10 ./User/main.o
- .debug_ranges  0x0000000000000028       0x18 ./User/system_ch32v30x.o
- .debug_ranges  0x0000000000000040       0x28 ./Startup/startup_ch32v30x_D8C.o
- .debug_ranges  0x0000000000000068       0x40 ./Peripheral/src/ch32v30x_exti.o
- .debug_ranges  0x00000000000000a8       0x98 ./Peripheral/src/ch32v30x_gpio.o
- .debug_ranges  0x0000000000000140      0x198 ./Peripheral/src/ch32v30x_rcc.o
- .debug_ranges  0x00000000000002d8      0x2f0 ./Peripheral/src/ch32v30x_tim.o
- .debug_ranges  0x00000000000005c8       0x18 ./General_File/driver/st7789.o
- .debug_ranges  0x00000000000005e0       0x58 ./General_File/system.o
- .debug_ranges  0x0000000000000638       0x38 ./Debug/debug.o
+ .debug_ranges  0x0000000000000018       0x28 ./User/main.o
+ .debug_ranges  0x0000000000000040       0x18 ./User/system_ch32v30x.o
+ .debug_ranges  0x0000000000000058       0x28 ./Startup/startup_ch32v30x_D8C.o
+ .debug_ranges  0x0000000000000080       0x40 ./Peripheral/src/ch32v30x_exti.o
+ .debug_ranges  0x00000000000000c0       0x98 ./Peripheral/src/ch32v30x_gpio.o
+ .debug_ranges  0x0000000000000158      0x198 ./Peripheral/src/ch32v30x_rcc.o
+ .debug_ranges  0x00000000000002f0      0x2f0 ./Peripheral/src/ch32v30x_tim.o
+ .debug_ranges  0x00000000000005e0       0x70 ./General_File/driver/st7789.o
+ .debug_ranges  0x0000000000000650       0x58 ./General_File/system.o
+ .debug_ranges  0x00000000000006a8       0x38 ./Debug/debug.o
 
-.debug_line     0x0000000000000000     0x7e91
+.debug_line     0x0000000000000000     0x8a96
  .debug_line    0x0000000000000000      0x21a ./User/ch32v30x_it.o
- .debug_line    0x000000000000021a      0x342 ./User/main.o
- .debug_line    0x000000000000055c      0x633 ./User/system_ch32v30x.o
- .debug_line    0x0000000000000b8f      0x356 ./Startup/startup_ch32v30x_D8C.o
- .debug_line    0x0000000000000ee5      0x5a1 ./Peripheral/src/ch32v30x_exti.o
- .debug_line    0x0000000000001486      0xd0f ./Peripheral/src/ch32v30x_gpio.o
- .debug_line    0x0000000000002195     0x1954 ./Peripheral/src/ch32v30x_rcc.o
- .debug_line    0x0000000000003ae9     0x32c1 ./Peripheral/src/ch32v30x_tim.o
- .debug_line    0x0000000000006daa      0x338 ./General_File/driver/st7789.o
- .debug_line    0x00000000000070e2      0x6e1 ./General_File/system.o
- .debug_line    0x00000000000077c3      0x6ce ./Debug/debug.o
+ .debug_line    0x000000000000021a      0x2e0 ./User/main.o
+ .debug_line    0x00000000000004fa      0x633 ./User/system_ch32v30x.o
+ .debug_line    0x0000000000000b2d      0x356 ./Startup/startup_ch32v30x_D8C.o
+ .debug_line    0x0000000000000e83      0x5a1 ./Peripheral/src/ch32v30x_exti.o
+ .debug_line    0x0000000000001424      0xd0f ./Peripheral/src/ch32v30x_gpio.o
+ .debug_line    0x0000000000002133     0x1954 ./Peripheral/src/ch32v30x_rcc.o
+ .debug_line    0x0000000000003a87     0x32c1 ./Peripheral/src/ch32v30x_tim.o
+ .debug_line    0x0000000000006d48      0x1ec ./General_File/driver/font.o
+ .debug_line    0x0000000000006f34      0xdb3 ./General_File/driver/st7789.o
+ .debug_line    0x0000000000007ce7      0x6e1 ./General_File/system.o
+ .debug_line    0x00000000000083c8      0x6ce ./Debug/debug.o
 
-.debug_str      0x0000000000000000     0x26c7
+.debug_str      0x0000000000000000     0x27e2
  .debug_str     0x0000000000000000      0x53a ./User/ch32v30x_it.o
                                         0x5a1 (size before relaxing)
- .debug_str     0x000000000000053a       0x8a ./User/main.o
-                                        0x60e (size before relaxing)
- .debug_str     0x00000000000005c4       0xf3 ./User/system_ch32v30x.o
+ .debug_str     0x000000000000053a       0x85 ./User/main.o
+                                        0x5fb (size before relaxing)
+ .debug_str     0x00000000000005bf       0xfd ./User/system_ch32v30x.o
                                         0x68b (size before relaxing)
- .debug_str     0x00000000000006b7       0x2e ./Startup/startup_ch32v30x_D8C.o
+ .debug_str     0x00000000000006bc       0x2e ./Startup/startup_ch32v30x_D8C.o
                                          0x55 (size before relaxing)
- .debug_str     0x00000000000006e5      0x1ea ./Peripheral/src/ch32v30x_exti.o
+ .debug_str     0x00000000000006ea      0x1ea ./Peripheral/src/ch32v30x_exti.o
                                         0x778 (size before relaxing)
- .debug_str     0x00000000000008cf      0x364 ./Peripheral/src/ch32v30x_gpio.o
+ .debug_str     0x00000000000008d4      0x3a0 ./Peripheral/src/ch32v30x_gpio.o
                                         0x95c (size before relaxing)
- .debug_str     0x0000000000000c33      0x5fb ./Peripheral/src/ch32v30x_rcc.o
+ .debug_str     0x0000000000000c74      0x5fb ./Peripheral/src/ch32v30x_rcc.o
                                         0xcb5 (size before relaxing)
- .debug_str     0x000000000000122e      0xbe5 ./Peripheral/src/ch32v30x_tim.o
+ .debug_str     0x000000000000126f      0xbe5 ./Peripheral/src/ch32v30x_tim.o
                                        0x1266 (size before relaxing)
- .debug_str     0x0000000000001e13       0x51 ./General_File/driver/st7789.o
-                                        0x747 (size before relaxing)
- .debug_str     0x0000000000001e64      0x6f4 ./General_File/system.o
+ .debug_str     0x0000000000001e54       0x1e ./General_File/driver/font.o
+                                        0x5be (size before relaxing)
+ .debug_str     0x0000000000001e72      0x102 ./General_File/driver/st7789.o
+                                        0x87b (size before relaxing)
+ .debug_str     0x0000000000001f74      0x6ff ./General_File/system.o
                                        0x1097 (size before relaxing)
- .debug_str     0x0000000000002558      0x16f ./Debug/debug.o
+ .debug_str     0x0000000000002673      0x16f ./Debug/debug.o
                                         0x8ea (size before relaxing)
 
 .comment        0x0000000000000000       0x33
@@ -2071,11 +2133,12 @@ OUTPUT(CH32V307VCT6.elf elf32-littleriscv)
  .comment       0x0000000000000033       0x34 ./Peripheral/src/ch32v30x_gpio.o
  .comment       0x0000000000000033       0x34 ./Peripheral/src/ch32v30x_rcc.o
  .comment       0x0000000000000033       0x34 ./Peripheral/src/ch32v30x_tim.o
+ .comment       0x0000000000000033       0x34 ./General_File/driver/font.o
  .comment       0x0000000000000033       0x34 ./General_File/driver/st7789.o
  .comment       0x0000000000000033       0x34 ./General_File/system.o
  .comment       0x0000000000000033       0x34 ./Debug/debug.o
 
-.debug_frame    0x0000000000000000      0xdbc
+.debug_frame    0x0000000000000000      0xf94
  .debug_frame   0x0000000000000000       0x30 ./User/ch32v30x_it.o
  .debug_frame   0x0000000000000030       0x2c ./User/main.o
  .debug_frame   0x000000000000005c       0x30 ./User/system_ch32v30x.o
@@ -2083,16 +2146,16 @@ OUTPUT(CH32V307VCT6.elf elf32-littleriscv)
  .debug_frame   0x000000000000011c      0x148 ./Peripheral/src/ch32v30x_gpio.o
  .debug_frame   0x0000000000000264      0x344 ./Peripheral/src/ch32v30x_rcc.o
  .debug_frame   0x00000000000005a8      0x614 ./Peripheral/src/ch32v30x_tim.o
- .debug_frame   0x0000000000000bbc       0x50 ./General_File/driver/st7789.o
- .debug_frame   0x0000000000000c0c      0x114 ./General_File/system.o
- .debug_frame   0x0000000000000d20       0x9c ./Debug/debug.o
+ .debug_frame   0x0000000000000bbc      0x228 ./General_File/driver/st7789.o
+ .debug_frame   0x0000000000000de4      0x114 ./General_File/system.o
+ .debug_frame   0x0000000000000ef8       0x9c ./Debug/debug.o
 
-.debug_loc      0x0000000000000000     0x2f67
- .debug_loc     0x0000000000000000       0x2a ./User/main.o
- .debug_loc     0x000000000000002a       0xda ./User/system_ch32v30x.o
- .debug_loc     0x0000000000000104      0x181 ./Peripheral/src/ch32v30x_exti.o
- .debug_loc     0x0000000000000285      0x670 ./Peripheral/src/ch32v30x_gpio.o
- .debug_loc     0x00000000000008f5      0xadb ./Peripheral/src/ch32v30x_rcc.o
- .debug_loc     0x00000000000013d0     0x195e ./Peripheral/src/ch32v30x_tim.o
- .debug_loc     0x0000000000002d2e       0xc2 ./General_File/system.o
- .debug_loc     0x0000000000002df0      0x177 ./Debug/debug.o
+.debug_loc      0x0000000000000000     0x359e
+ .debug_loc     0x0000000000000000       0xda ./User/system_ch32v30x.o
+ .debug_loc     0x00000000000000da      0x181 ./Peripheral/src/ch32v30x_exti.o
+ .debug_loc     0x000000000000025b      0x670 ./Peripheral/src/ch32v30x_gpio.o
+ .debug_loc     0x00000000000008cb      0xadb ./Peripheral/src/ch32v30x_rcc.o
+ .debug_loc     0x00000000000013a6     0x195e ./Peripheral/src/ch32v30x_tim.o
+ .debug_loc     0x0000000000002d04      0x661 ./General_File/driver/st7789.o
+ .debug_loc     0x0000000000003365       0xc2 ./General_File/system.o
+ .debug_loc     0x0000000000003427      0x177 ./Debug/debug.o
