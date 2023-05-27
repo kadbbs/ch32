@@ -374,7 +374,7 @@ void lcd_init(void)
 
     /* RGB 5-6-5-bit  */
     lcd_write_reg(0x3A);
-    lcd_write_data(0x65);
+    lcd_write_data(0x65);//different
 
     /* Porch Setting */
     lcd_write_reg(0xB2);
@@ -386,11 +386,11 @@ void lcd_init(void)
 
     /*  Gate Control */
     lcd_write_reg(0xB7);
-    lcd_write_data(0x72);
+    lcd_write_data(0x72);//different
 
     /* VCOM Setting */
     lcd_write_reg(0xBB);
-    lcd_write_data(0x3D);   //Vcom=1.625V
+    lcd_write_data(0x3D);   //Vcom=1.625V   //different
 
     /* LCM Control */
     lcd_write_reg(0xC0);
@@ -460,3 +460,81 @@ void lcd_init(void)
     LCD_PWR(1);
 }
 
+
+
+//
+//void ST7789VCMI24panelinitialcode(void)
+//{
+////-----------------------------------ST7789V reset sequence------------------------------------//
+//LCD_RESET=1;
+//delayms(1); //Delay 1ms
+//LCD_RESET=0;
+//delayms(10); //Delay 10ms
+//LCD_RESET=1;
+//delayms(120); //Delay 120ms
+////---------------------------------------------------------------------------------------------------//
+//LLCD_WRITE_CMD (0x11);
+//delayms(120); //Delay 120ms
+////------------------------------display and color format setting--------------------------------//
+//LLCD_WRITE_CMD (0x36);
+//LLCD_WRITE_DATA (0x00);
+//LLCD_WRITE_CMD (0x3a);
+//LLCD_WRITE_DATA (0x05);
+////--------------------------------ST7789V Frame rate setting----------------------------------//
+//LLCD_WRITE_CMD (0xb2);
+//LLCD_WRITE_DATA (0x0c);
+//LLCD_WRITE_DATA (0x0c);
+//LLCD_WRITE_DATA (0x00);
+//LLCD_WRITE_DATA (0x33);
+//LLCD_WRITE_DATA (0x33);
+//LLCD_WRITE_CMD (0xb7);
+//LLCD_WRITE_DATA (0x35);
+////---------------------------------ST7789V Power setting--------------------------------------//
+//LLCD_WRITE_CMD (0xbb);
+//LLCD_WRITE_DATA (0x28);
+//LLCD_WRITE_CMD (0xc0);
+//LLCD_WRITE_DATA (0x2c);
+//LLCD_WRITE_CMD (0xc2);
+//LLCD_WRITE_DATA (0x01);
+//LLCD_WRITE_CMD (0xc3);
+//LLCD_WRITE_DATA (0x0b);
+//LLCD_WRITE_CMD (0xc4);
+//LLCD_WRITE_DATA (0x20);
+//LLCD_WRITE_CMD (0xc6);
+//LLCD_WRITE_DATA (0x0f);
+//LLCD_WRITE_CMD (0xd0);
+//LLCD_WRITE_DATA (0xa4);
+//LLCD_WRITE_DATA (0xa1);
+////--------------------------------ST7789V gamma setting---------------------------------------//
+//LLCD_WRITE_CMD (0xe0);
+//LLCD_WRITE_DATA (0xd0);
+//LLCD_WRITE_DATA (0x01);
+//LLCD_WRITE_DATA (0x08);
+//LLCD_WRITE_DATA (0x0f);
+//LLCD_WRITE_DATA (0x11);
+//LLCD_WRITE_DATA (0x2a);
+//LLCD_WRITE_DATA (0x36);
+//LLCD_WRITE_DATA (0x55);
+//LLCD_WRITE_DATA (0x44);
+//LLCD_WRITE_DATA (0x3a);
+//LLCD_WRITE_DATA (0x0b);
+//LLCD_WRITE_DATA (0x06);
+//LLCD_WRITE_DATA (0x11);
+//LLCD_WRITE_DATA (0x20);
+//LLCD_WRITE_CMD (0xe1);
+//LLCD_WRITE_DATA (0xd0);
+//LLCD_WRITE_DATA (0x02);
+//LLCD_WRITE_DATA (0x07);
+//LLCD_WRITE_DATA (0x0a);
+//LLCD_WRITE_DATA (0x0b);
+//LLCD_WRITE_DATA (0x18);
+//LLCD_WRITE_DATA (0x34);
+//LLCD_WRITE_DATA (0x43);
+//LLCD_WRITE_DATA (0x4a);
+//LLCD_WRITE_DATA (0x2b);
+//LLCD_WRITE_DATA (0x1b);
+//LLCD_WRITE_DATA (0x1c);
+//LLCD_WRITE_DATA (0x22);
+//LLCD_WRITE_DATA (0x1f);
+//LLCD_WRITE_CMD (0x29);
+//}

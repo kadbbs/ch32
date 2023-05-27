@@ -68,7 +68,7 @@ int main(void)
 //	    LCD_LED(i);
 //	    Delay_Ms(2000);
 //	}
-    u16 YELLOW=0xff00;
+    u16 YELLOW=0xffff;
     lcd_init();
     lcd_clear(YELLOW);
 
