@@ -2,7 +2,7 @@
 #define __FONT_H__	 
 
 //常用ASCII表
-//偏移量32 
+//偏移量32
 //ASCII字符集: !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~
 //PC2LCD2002取模方式设置：阴码+逐列式+顺向+C51格式
 //总共：2个字符集（16*16和24*24），用户可以自行新增其他分辨率的字符集。
@@ -18,6 +18,11 @@ extern const unsigned char asc2_4824[95][144];
 
 /* 中文字符 */
 extern const unsigned char pandora_ch[];
-
+extern const unsigned char my_name[];
+extern const unsigned char yun[];
+extern const unsigned char win_sign[];
+extern const unsigned char yehuo[];
+extern const unsigned char  bitmap_wd_bytes[];
+extern const unsigned char bitmap_sd_bytes[];
 #endif
 

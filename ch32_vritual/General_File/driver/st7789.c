@@ -170,7 +170,7 @@ void lcd_clear(u16 color)
 {
     u16 i, j;
 
-//    lcd_display_off();      /* 关闭显示 */
+    lcd_display_off();      /* 关闭显示 */
     lcd_set_address(0, 0, LCD_WIDTH - 1, LCD_HEIHGT - 1);
     lcd_write_ram();
 
@@ -313,7 +313,7 @@ void lcd_show_string(u16 x, u16 y, u16 width, u16 height, u8 *p, u8 size, u8 mod
 返回值      : 无
 备注       : 无
 **************************************************************/
-void lcd_show_chinese(u16 x, u16 y, const u8 * ch, u8 size, u8 n, u8 mode)
+void lcd_show_chinese(u16 x, u16 y, const u8 * ch, u16 size, u8 n, u8 mode)
 {
     u32 temp, t, t1;
     u16 y0 = y;
@@ -341,6 +341,60 @@ void lcd_show_chinese(u16 x, u16 y, const u8 * ch, u8 size, u8 n, u8 mode)
                 x++;
                 break;
             }
+        }
+    }
+}
+//_lcd_dev lcddev;
+//设置光标位置
+//Xpos:横坐标
+//Ypos:纵坐标
+//开始写GRAM
+//void LCD_WriteRAM_Prepare(void)
+//{
+//    LCD_WR_REG(lcddev.wramcmd);
+//}
+//void LCD_SetCursor(u16 Xpos, u16 Ypos)
+//{
+//    LCD_WR_REG(lcddev.setxcmd);
+//    LCD_WR_DATA(Xpos>>8);
+//    LCD_WR_DATA(Xpos&0XFF);
+//
+//    LCD_WR_REG(lcddev.setycmd);
+//    LCD_WR_DATA(Ypos>>8);
+//    LCD_WR_DATA(Ypos&0XFF);
+//}
+//void LCD_DrawPoint(u16 x,u16 y)
+//{
+//    LCD_SetCursor(x,y);     //设置光标位置
+//    LCD_WriteRAM_Prepare(); //开始写入GRAM
+//    LCD_WriteRAM(POINT_COLOR);
+//}
+//在指定位置画一个指定大小的圆
+//(x,y):中心点
+//r    :半径
+void Draw_Circle(u16 x0,u16 y0,u8 r)
+{
+    int a,b;
+    int di;
+    a=0;b=r;
+    di=3-(r<<1);             //判断下个点位置的标志
+    while(a<=b)
+    {
+        lcd_draw_point(x0+a,y0-b,BLUE);             //5
+        lcd_draw_point(x0+b,y0-a,BLUE);             //0
+        lcd_draw_point(x0+b,y0+a,BLUE);             //4
+        lcd_draw_point(x0+a,y0+b,BLUE);             //6
+        lcd_draw_point(x0-a,y0+b,BLUE);             //1
+        lcd_draw_point(x0-b,y0+a,BLUE);
+        lcd_draw_point(x0-a,y0-b,BLUE);             //2
+        lcd_draw_point(x0-b,y0-a,BLUE);             //7
+        a++;
+        //使用Bresenham算法画圆
+        if(di<0)di +=4*a+6;
+        else
+        {
+            di+=10+4*(a-b);
+            b--;
         }
     }
 }

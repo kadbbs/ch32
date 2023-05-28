@@ -7,8 +7,8 @@ start address 0x00000000
 
 Program Header:
     LOAD off    0x00001000 vaddr 0x00000000 paddr 0x00000000 align 2**12
-         filesz 0x00000940 memsz 0x00000940 flags r-x
-    LOAD off    0x00002000 vaddr 0x20000000 paddr 0x00000940 align 2**12
+         filesz 0x00000950 memsz 0x00000950 flags r-x
+    LOAD off    0x00002000 vaddr 0x20000000 paddr 0x00000950 align 2**12
          filesz 0x00000000 memsz 0x00000004 flags rw-
     LOAD off    0x00002800 vaddr 0x20007800 paddr 0x20007800 align 2**12
          filesz 0x00000000 memsz 0x00000800 flags rw-
@@ -19,45 +19,45 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
   1 .vector       000001c8  00000038  00000038  00001038  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .text         00000740  00000200  00000200  00001200  2**1
+  2 .text         00000750  00000200  00000200  00001200  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  3 .fini         00000000  00000940  00000940  00001940  2**0
+  3 .fini         00000000  00000950  00000950  00001950  2**0
                   CONTENTS, ALLOC, LOAD, CODE
-  4 .dalign       00000000  20000000  20000000  00001940  2**0
+  4 .dalign       00000000  20000000  20000000  00001950  2**0
                   CONTENTS
-  5 .dlalign      00000000  00000940  00000940  00001940  2**0
+  5 .dlalign      00000000  00000950  00000950  00001950  2**0
                   CONTENTS
-  6 .data         00000000  20000000  20000000  00001940  2**0
+  6 .data         00000000  20000000  20000000  00001950  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  7 .bss          00000004  20000000  00000940  00002000  2**1
+  7 .bss          00000004  20000000  00000950  00002000  2**1
                   ALLOC
   8 .stack        00000800  20007800  20007800  00002800  2**0
                   ALLOC
-  9 .debug_info   0000b852  00000000  00000000  00001940  2**0
+  9 .debug_info   0000ba59  00000000  00000000  00001950  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_abbrev 00001d33  00000000  00000000  0000d192  2**0
+ 10 .debug_abbrev 00001d59  00000000  00000000  0000d3a9  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_aranges 00000740  00000000  00000000  0000eec8  2**3
+ 11 .debug_aranges 00000748  00000000  00000000  0000f108  2**3
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 000006c8  00000000  00000000  0000f608  2**3
+ 12 .debug_ranges 000006d0  00000000  00000000  0000f850  2**3
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_line   000087ba  00000000  00000000  0000fcd0  2**0
+ 13 .debug_line   00008932  00000000  00000000  0000ff20  2**0
                   CONTENTS, READONLY, DEBUGGING
- 14 .debug_str    000027bd  00000000  00000000  0001848a  2**0
+ 14 .debug_str    000027fa  00000000  00000000  00018852  2**0
                   CONTENTS, READONLY, DEBUGGING
- 15 .comment      00000033  00000000  00000000  0001ac47  2**0
+ 15 .comment      00000033  00000000  00000000  0001b04c  2**0
                   CONTENTS, READONLY
- 16 .debug_frame  00000f8c  00000000  00000000  0001ac7c  2**2
+ 16 .debug_frame  00000fcc  00000000  00000000  0001b080  2**2
                   CONTENTS, READONLY, DEBUGGING
- 17 .debug_loc    0000359f  00000000  00000000  0001bc08  2**0
+ 17 .debug_loc    0000363f  00000000  00000000  0001c04c  2**0
                   CONTENTS, READONLY, DEBUGGING
 SYMBOL TABLE:
 00000000 l    d  .init	00000000 .init
 00000038 l    d  .vector	00000000 .vector
 00000200 l    d  .text	00000000 .text
-00000940 l    d  .fini	00000000 .fini
+00000950 l    d  .fini	00000000 .fini
 20000000 l    d  .dalign	00000000 .dalign
-00000940 l    d  .dlalign	00000000 .dlalign
+00000950 l    d  .dlalign	00000000 .dlalign
 20000000 l    d  .data	00000000 .data
 20000000 l    d  .bss	00000000 .bss
 20007800 l    d  .stack	00000000 .stack
@@ -93,7 +93,7 @@ SYMBOL TABLE:
 0000036a  w      .text	00000000 TIM1_CC_IRQHandler
 00000264 g     F .text	00000002 HardFault_Handler
 00000254 g     F .text	0000000c .hidden __riscv_restore_3
-000008d4 g     F .text	00000032 TIM6_IRQHandler
+000008e2 g     F .text	00000032 TIM6_IRQHandler
 00000330  w      .text	00000000 SysTick_Handler
 00000336  w      .text	00000000 PVD_IRQHandler
 00000396  w      .text	00000000 SDIO_IRQHandler
@@ -104,13 +104,14 @@ SYMBOL TABLE:
 000003b6  w      .text	00000000 CAN2_RX1_IRQHandler
 00000346  w      .text	00000000 EXTI3_IRQHandler
 00000208 g     F .text	00000028 .hidden __riscv_save_11
+000006f4 g     F .text	0000000c lcd_display_off
 000003be  w      .text	00000000 USBHS_IRQHandler
 000003de  w      .text	00000000 DMA2_Channel9_IRQHandler
 000003d6  w      .text	00000000 TIM10_CC_IRQHandler
 20000000 g       .bss	00000000 _sbss
 00000800 g       *ABS*	00000000 __stack_size
 00000254 g     F .text	0000000c .hidden __riscv_restore_2
-000008a6 g     F .text	0000002e EXTI0_IRQHandler
+000008b4 g     F .text	0000002e EXTI0_IRQHandler
 00000376  w      .text	00000000 I2C2_EV_IRQHandler
 000003d4  w      .text	00000000 TIM10_TRG_COM_IRQHandler
 0000056c g     F .text	0000000c TIM_ClearFlag
@@ -134,7 +135,7 @@ SYMBOL TABLE:
 0000024a g     F .text	00000016 .hidden __riscv_restore_5
 000003a6  w      .text	00000000 DMA2_Channel2_IRQHandler
 00000350  w      .text	00000000 DMA1_Channel4_IRQHandler
-000006f4 g     F .text	00000042 lcd_clear
+00000700 g     F .text	00000044 lcd_clear
 000003ca  w      .text	00000000 TIM9_UP_IRQHandler
 0000024a g     F .text	00000016 .hidden __riscv_restore_6
 00000382  w      .text	00000000 USART3_IRQHandler
@@ -179,14 +180,14 @@ SYMBOL TABLE:
 0000037c  w      .text	00000000 SPI2_IRQHandler
 00000240 g     F .text	00000020 .hidden __riscv_restore_9
 0000024a g     F .text	00000016 .hidden __riscv_restore_7
-00000736 g     F .text	00000170 lcd_init
+00000744 g     F .text	00000170 lcd_init
 00000266 g     F .text	0000000e main
 000003d0  w      .text	00000000 TIM10_BRK_IRQHandler
 000003ce  w      .text	00000000 TIM9_CC_IRQHandler
 000003ac  w      .text	00000000 DMA2_Channel5_IRQHandler
 00000352  w      .text	00000000 DMA1_Channel5_IRQHandler
 00000348  w      .text	00000000 EXTI4_IRQHandler
-00000906 g     F .text	0000003a Delay_Ms
+00000914 g     F .text	0000003a Delay_Ms
 0000035c  w      .text	00000000 USB_LP_CAN1_RX0_IRQHandler
 00000274 g     F .text	000000b2 SystemInit
 00000392  w      .text	00000000 RNG_IRQHandler
@@ -214,7 +215,7 @@ SYMBOL TABLE:
 20000000 g       .data	00000000 _edata
 20000004 g       .bss	00000000 _end
 00000386  w      .text	00000000 RTCAlarm_IRQHandler
-00000940 g       .dlalign	00000000 _data_lma
+00000950 g       .dlalign	00000000 _data_lma
 000003d2  w      .text	00000000 TIM10_UP_IRQHandler
 000003cc  w      .text	00000000 TIM9_TRG_COM_IRQHandler
 000003c4  w      .text	00000000 UART7_IRQHandler
@@ -294,7 +295,7 @@ Disassembly of section .vector:
   8a:	0000                	unimp
   8c:	033e                	slli	t1,t1,0xf
   8e:	0000                	unimp
-  90:	08a6                	slli	a7,a7,0x9
+  90:	08b4                	addi	a3,sp,88
   92:	0000                	unimp
   94:	0342                	slli	t1,t1,0x10
   96:	0000                	unimp
@@ -390,7 +391,7 @@ Disassembly of section .vector:
  14a:	0000                	unimp
  14c:	039e                	slli	t2,t2,0x7
  14e:	0000                	unimp
- 150:	08d4                	addi	a3,sp,84
+ 150:	08e2                	slli	a7,a7,0x18
  152:	0000                	unimp
  154:	03a2                	slli	t2,t2,0x8
  156:	0000                	unimp
@@ -532,10 +533,10 @@ Disassembly of section .text:
 
 00000266 <main>:
  266:	fcbff2ef          	jal	t0,230 <__riscv_save_0>
- 26a:	21f1                	jal	736 <lcd_init>
+ 26a:	29e9                	jal	744 <lcd_init>
  26c:	6541                	lui	a0,0x10
  26e:	1501                	addi	a0,a0,-32
- 270:	2151                	jal	6f4 <lcd_clear>
+ 270:	2941                	jal	700 <lcd_clear>
  272:	a001                	j	272 <main+0xc>
 
 00000274 <SystemInit>:
@@ -891,7 +892,7 @@ Disassembly of section .text:
  3ec:	20008117          	auipc	sp,0x20008
  3f0:	c1410113          	addi	sp,sp,-1004 # 20008000 <_eusrstack>
  3f4:	00000517          	auipc	a0,0x0
- 3f8:	54c50513          	addi	a0,a0,1356 # 940 <_data_lma>
+ 3f8:	55c50513          	addi	a0,a0,1372 # 950 <_data_lma>
  3fc:	20000597          	auipc	a1,0x20000
  400:	c0458593          	addi	a1,a1,-1020 # 20000000 <_data_vma>
  404:	20000617          	auipc	a2,0x20000
@@ -915,7 +916,7 @@ Disassembly of section .text:
  444:	42ad                	li	t0,11
  446:	80429073          	csrw	0x804,t0
  44a:	000062b7          	lui	t0,0x6
- 44e:	08828293          	addi	t0,t0,136 # 6088 <_data_lma+0x5748>
+ 44e:	08828293          	addi	t0,t0,136 # 6088 <_data_lma+0x5738>
  452:	3002a073          	csrs	mstatus,t0
  456:	00000297          	auipc	t0,0x0
  45a:	be228293          	addi	t0,t0,-1054 # 38 <_einit>
@@ -1174,236 +1175,244 @@ Disassembly of section .text:
  6f0:	3d75                	jal	5ac <lcd_write_reg>
  6f2:	b68d                	j	254 <__riscv_restore_0>
 
-000006f4 <lcd_clear>:
- 6f4:	b23ff2ef          	jal	t0,216 <__riscv_save_4>
- 6f8:	892a                	mv	s2,a0
- 6fa:	13f00693          	li	a3,319
- 6fe:	0ef00613          	li	a2,239
- 702:	4581                	li	a1,0
- 704:	4501                	li	a0,0
- 706:	3f49                	jal	698 <lcd_set_address>
- 708:	00895993          	srli	s3,s2,0x8
- 70c:	3741                	jal	68c <lcd_write_ram>
- 70e:	14000493          	li	s1,320
- 712:	0ff97913          	andi	s2,s2,255
- 716:	0f000413          	li	s0,240
- 71a:	854e                	mv	a0,s3
- 71c:	147d                	addi	s0,s0,-1
- 71e:	3dfd                	jal	61c <lcd_write_data>
- 720:	0442                	slli	s0,s0,0x10
- 722:	854a                	mv	a0,s2
- 724:	8041                	srli	s0,s0,0x10
- 726:	3ddd                	jal	61c <lcd_write_data>
- 728:	f86d                	bnez	s0,71a <lcd_clear+0x26>
- 72a:	14fd                	addi	s1,s1,-1
- 72c:	04c2                	slli	s1,s1,0x10
- 72e:	80c1                	srli	s1,s1,0x10
- 730:	f0fd                	bnez	s1,716 <lcd_clear+0x22>
- 732:	3f5d                	jal	6e8 <lcd_display_on>
- 734:	be19                	j	24a <__riscv_restore_4>
+000006f4 <lcd_display_off>:
+ 6f4:	b3dff2ef          	jal	t0,230 <__riscv_save_0>
+ 6f8:	02800513          	li	a0,40
+ 6fc:	3d45                	jal	5ac <lcd_write_reg>
+ 6fe:	be99                	j	254 <__riscv_restore_0>
 
-00000736 <lcd_init>:
- 736:	afbff2ef          	jal	t0,230 <__riscv_save_0>
- 73a:	3d3d                	jal	578 <ST7789_GPIO_init>
- 73c:	40012437          	lui	s0,0x40012
- 740:	4605                	li	a2,1
- 742:	6585                	lui	a1,0x1
- 744:	80040513          	addi	a0,s0,-2048 # 40011800 <_eusrstack+0x20009800>
- 748:	3bf5                	jal	544 <GPIO_WriteBit>
- 74a:	4505                	li	a0,1
- 74c:	2a6d                	jal	906 <Delay_Ms>
- 74e:	4601                	li	a2,0
+00000700 <lcd_clear>:
+ 700:	b17ff2ef          	jal	t0,216 <__riscv_save_4>
+ 704:	892a                	mv	s2,a0
+ 706:	37fd                	jal	6f4 <lcd_display_off>
+ 708:	13f00693          	li	a3,319
+ 70c:	0ef00613          	li	a2,239
+ 710:	4581                	li	a1,0
+ 712:	4501                	li	a0,0
+ 714:	3751                	jal	698 <lcd_set_address>
+ 716:	00895993          	srli	s3,s2,0x8
+ 71a:	3f8d                	jal	68c <lcd_write_ram>
+ 71c:	14000493          	li	s1,320
+ 720:	0ff97913          	andi	s2,s2,255
+ 724:	0f000413          	li	s0,240
+ 728:	854e                	mv	a0,s3
+ 72a:	147d                	addi	s0,s0,-1
+ 72c:	3dc5                	jal	61c <lcd_write_data>
+ 72e:	0442                	slli	s0,s0,0x10
+ 730:	854a                	mv	a0,s2
+ 732:	8041                	srli	s0,s0,0x10
+ 734:	35e5                	jal	61c <lcd_write_data>
+ 736:	f86d                	bnez	s0,728 <lcd_clear+0x28>
+ 738:	14fd                	addi	s1,s1,-1
+ 73a:	04c2                	slli	s1,s1,0x10
+ 73c:	80c1                	srli	s1,s1,0x10
+ 73e:	f0fd                	bnez	s1,724 <lcd_clear+0x24>
+ 740:	3765                	jal	6e8 <lcd_display_on>
+ 742:	b621                	j	24a <__riscv_restore_4>
+
+00000744 <lcd_init>:
+ 744:	aedff2ef          	jal	t0,230 <__riscv_save_0>
+ 748:	3d05                	jal	578 <ST7789_GPIO_init>
+ 74a:	40012437          	lui	s0,0x40012
+ 74e:	4605                	li	a2,1
  750:	6585                	lui	a1,0x1
- 752:	80040513          	addi	a0,s0,-2048
+ 752:	80040513          	addi	a0,s0,-2048 # 40011800 <_eusrstack+0x20009800>
  756:	33fd                	jal	544 <GPIO_WriteBit>
- 758:	4529                	li	a0,10
- 75a:	2275                	jal	906 <Delay_Ms>
- 75c:	4605                	li	a2,1
+ 758:	4505                	li	a0,1
+ 75a:	2a6d                	jal	914 <Delay_Ms>
+ 75c:	4601                	li	a2,0
  75e:	6585                	lui	a1,0x1
  760:	80040513          	addi	a0,s0,-2048
  764:	33c5                	jal	544 <GPIO_WriteBit>
- 766:	07800513          	li	a0,120
- 76a:	2a71                	jal	906 <Delay_Ms>
- 76c:	4545                	li	a0,17
- 76e:	3d3d                	jal	5ac <lcd_write_reg>
- 770:	07800513          	li	a0,120
- 774:	2a49                	jal	906 <Delay_Ms>
- 776:	03600513          	li	a0,54
- 77a:	3d0d                	jal	5ac <lcd_write_reg>
- 77c:	4501                	li	a0,0
- 77e:	3d79                	jal	61c <lcd_write_data>
- 780:	03a00513          	li	a0,58
- 784:	3525                	jal	5ac <lcd_write_reg>
- 786:	4515                	li	a0,5
- 788:	3d51                	jal	61c <lcd_write_data>
- 78a:	0b200513          	li	a0,178
- 78e:	3d39                	jal	5ac <lcd_write_reg>
- 790:	4531                	li	a0,12
- 792:	3569                	jal	61c <lcd_write_data>
- 794:	4531                	li	a0,12
+ 766:	4529                	li	a0,10
+ 768:	2275                	jal	914 <Delay_Ms>
+ 76a:	4605                	li	a2,1
+ 76c:	6585                	lui	a1,0x1
+ 76e:	80040513          	addi	a0,s0,-2048
+ 772:	3bc9                	jal	544 <GPIO_WriteBit>
+ 774:	07800513          	li	a0,120
+ 778:	2a71                	jal	914 <Delay_Ms>
+ 77a:	4545                	li	a0,17
+ 77c:	3d05                	jal	5ac <lcd_write_reg>
+ 77e:	07800513          	li	a0,120
+ 782:	2a49                	jal	914 <Delay_Ms>
+ 784:	03600513          	li	a0,54
+ 788:	3515                	jal	5ac <lcd_write_reg>
+ 78a:	4501                	li	a0,0
+ 78c:	3d41                	jal	61c <lcd_write_data>
+ 78e:	03a00513          	li	a0,58
+ 792:	3d29                	jal	5ac <lcd_write_reg>
+ 794:	4515                	li	a0,5
  796:	3559                	jal	61c <lcd_write_data>
- 798:	4501                	li	a0,0
- 79a:	3549                	jal	61c <lcd_write_data>
- 79c:	03300513          	li	a0,51
+ 798:	0b200513          	li	a0,178
+ 79c:	3d01                	jal	5ac <lcd_write_reg>
+ 79e:	4531                	li	a0,12
  7a0:	3db5                	jal	61c <lcd_write_data>
- 7a2:	03300513          	li	a0,51
- 7a6:	3d9d                	jal	61c <lcd_write_data>
- 7a8:	0b700513          	li	a0,183
- 7ac:	3501                	jal	5ac <lcd_write_reg>
- 7ae:	03500513          	li	a0,53
- 7b2:	35ad                	jal	61c <lcd_write_data>
- 7b4:	0bb00513          	li	a0,187
- 7b8:	3bd5                	jal	5ac <lcd_write_reg>
- 7ba:	02800513          	li	a0,40
- 7be:	3db9                	jal	61c <lcd_write_data>
- 7c0:	0c000513          	li	a0,192
- 7c4:	33e5                	jal	5ac <lcd_write_reg>
- 7c6:	02c00513          	li	a0,44
- 7ca:	3d89                	jal	61c <lcd_write_data>
- 7cc:	0c200513          	li	a0,194
- 7d0:	3bf1                	jal	5ac <lcd_write_reg>
- 7d2:	4505                	li	a0,1
- 7d4:	35a1                	jal	61c <lcd_write_data>
- 7d6:	0c300513          	li	a0,195
- 7da:	3bc9                	jal	5ac <lcd_write_reg>
- 7dc:	452d                	li	a0,11
- 7de:	3d3d                	jal	61c <lcd_write_data>
- 7e0:	0c400513          	li	a0,196
- 7e4:	33e1                	jal	5ac <lcd_write_reg>
- 7e6:	02000513          	li	a0,32
- 7ea:	3d0d                	jal	61c <lcd_write_data>
- 7ec:	0c600513          	li	a0,198
- 7f0:	3b75                	jal	5ac <lcd_write_reg>
- 7f2:	453d                	li	a0,15
- 7f4:	3525                	jal	61c <lcd_write_data>
- 7f6:	0d000513          	li	a0,208
- 7fa:	3b4d                	jal	5ac <lcd_write_reg>
- 7fc:	0a400513          	li	a0,164
- 800:	3d31                	jal	61c <lcd_write_data>
- 802:	0a100513          	li	a0,161
- 806:	3d19                	jal	61c <lcd_write_data>
- 808:	0e000513          	li	a0,224
- 80c:	3345                	jal	5ac <lcd_write_reg>
- 80e:	0d000513          	li	a0,208
- 812:	3529                	jal	61c <lcd_write_data>
- 814:	4505                	li	a0,1
- 816:	3519                	jal	61c <lcd_write_data>
- 818:	4521                	li	a0,8
- 81a:	3509                	jal	61c <lcd_write_data>
- 81c:	453d                	li	a0,15
- 81e:	3bfd                	jal	61c <lcd_write_data>
- 820:	4545                	li	a0,17
- 822:	3bed                	jal	61c <lcd_write_data>
- 824:	02a00513          	li	a0,42
+ 7a2:	4531                	li	a0,12
+ 7a4:	3da5                	jal	61c <lcd_write_data>
+ 7a6:	4501                	li	a0,0
+ 7a8:	3d95                	jal	61c <lcd_write_data>
+ 7aa:	03300513          	li	a0,51
+ 7ae:	35bd                	jal	61c <lcd_write_data>
+ 7b0:	03300513          	li	a0,51
+ 7b4:	35a5                	jal	61c <lcd_write_data>
+ 7b6:	0b700513          	li	a0,183
+ 7ba:	3bcd                	jal	5ac <lcd_write_reg>
+ 7bc:	03500513          	li	a0,53
+ 7c0:	3db1                	jal	61c <lcd_write_data>
+ 7c2:	0bb00513          	li	a0,187
+ 7c6:	33dd                	jal	5ac <lcd_write_reg>
+ 7c8:	02800513          	li	a0,40
+ 7cc:	3d81                	jal	61c <lcd_write_data>
+ 7ce:	0c000513          	li	a0,192
+ 7d2:	3be9                	jal	5ac <lcd_write_reg>
+ 7d4:	02c00513          	li	a0,44
+ 7d8:	3591                	jal	61c <lcd_write_data>
+ 7da:	0c200513          	li	a0,194
+ 7de:	33f9                	jal	5ac <lcd_write_reg>
+ 7e0:	4505                	li	a0,1
+ 7e2:	3d2d                	jal	61c <lcd_write_data>
+ 7e4:	0c300513          	li	a0,195
+ 7e8:	33d1                	jal	5ac <lcd_write_reg>
+ 7ea:	452d                	li	a0,11
+ 7ec:	3d05                	jal	61c <lcd_write_data>
+ 7ee:	0c400513          	li	a0,196
+ 7f2:	3b6d                	jal	5ac <lcd_write_reg>
+ 7f4:	02000513          	li	a0,32
+ 7f8:	3515                	jal	61c <lcd_write_data>
+ 7fa:	0c600513          	li	a0,198
+ 7fe:	337d                	jal	5ac <lcd_write_reg>
+ 800:	453d                	li	a0,15
+ 802:	3d29                	jal	61c <lcd_write_data>
+ 804:	0d000513          	li	a0,208
+ 808:	3355                	jal	5ac <lcd_write_reg>
+ 80a:	0a400513          	li	a0,164
+ 80e:	3539                	jal	61c <lcd_write_data>
+ 810:	0a100513          	li	a0,161
+ 814:	3521                	jal	61c <lcd_write_data>
+ 816:	0e000513          	li	a0,224
+ 81a:	3b49                	jal	5ac <lcd_write_reg>
+ 81c:	0d000513          	li	a0,208
+ 820:	3bf5                	jal	61c <lcd_write_data>
+ 822:	4505                	li	a0,1
+ 824:	3be5                	jal	61c <lcd_write_data>
+ 826:	4521                	li	a0,8
  828:	3bd5                	jal	61c <lcd_write_data>
- 82a:	03600513          	li	a0,54
- 82e:	33fd                	jal	61c <lcd_write_data>
- 830:	05500513          	li	a0,85
- 834:	33e5                	jal	61c <lcd_write_data>
- 836:	04400513          	li	a0,68
- 83a:	33cd                	jal	61c <lcd_write_data>
- 83c:	03a00513          	li	a0,58
- 840:	3bf1                	jal	61c <lcd_write_data>
- 842:	452d                	li	a0,11
- 844:	3be1                	jal	61c <lcd_write_data>
- 846:	4519                	li	a0,6
+ 82a:	453d                	li	a0,15
+ 82c:	3bc5                	jal	61c <lcd_write_data>
+ 82e:	4545                	li	a0,17
+ 830:	33f5                	jal	61c <lcd_write_data>
+ 832:	02a00513          	li	a0,42
+ 836:	33dd                	jal	61c <lcd_write_data>
+ 838:	03600513          	li	a0,54
+ 83c:	33c5                	jal	61c <lcd_write_data>
+ 83e:	05500513          	li	a0,85
+ 842:	3be9                	jal	61c <lcd_write_data>
+ 844:	04400513          	li	a0,68
  848:	3bd1                	jal	61c <lcd_write_data>
- 84a:	4545                	li	a0,17
- 84c:	3bc1                	jal	61c <lcd_write_data>
- 84e:	02000513          	li	a0,32
+ 84a:	03a00513          	li	a0,58
+ 84e:	33f9                	jal	61c <lcd_write_data>
+ 850:	452d                	li	a0,11
  852:	33e9                	jal	61c <lcd_write_data>
- 854:	0e100513          	li	a0,225
- 858:	3b91                	jal	5ac <lcd_write_reg>
- 85a:	0d000513          	li	a0,208
- 85e:	3b7d                	jal	61c <lcd_write_data>
- 860:	4509                	li	a0,2
- 862:	3b6d                	jal	61c <lcd_write_data>
- 864:	451d                	li	a0,7
- 866:	3b5d                	jal	61c <lcd_write_data>
- 868:	4529                	li	a0,10
- 86a:	3b4d                	jal	61c <lcd_write_data>
- 86c:	452d                	li	a0,11
- 86e:	337d                	jal	61c <lcd_write_data>
- 870:	4561                	li	a0,24
- 872:	336d                	jal	61c <lcd_write_data>
- 874:	03400513          	li	a0,52
+ 854:	4519                	li	a0,6
+ 856:	33d9                	jal	61c <lcd_write_data>
+ 858:	4545                	li	a0,17
+ 85a:	33c9                	jal	61c <lcd_write_data>
+ 85c:	02000513          	li	a0,32
+ 860:	3b75                	jal	61c <lcd_write_data>
+ 862:	0e100513          	li	a0,225
+ 866:	3399                	jal	5ac <lcd_write_reg>
+ 868:	0d000513          	li	a0,208
+ 86c:	3b45                	jal	61c <lcd_write_data>
+ 86e:	4509                	li	a0,2
+ 870:	3375                	jal	61c <lcd_write_data>
+ 872:	451d                	li	a0,7
+ 874:	3365                	jal	61c <lcd_write_data>
+ 876:	4529                	li	a0,10
  878:	3355                	jal	61c <lcd_write_data>
- 87a:	04300513          	li	a0,67
- 87e:	3b79                	jal	61c <lcd_write_data>
- 880:	04a00513          	li	a0,74
- 884:	3b61                	jal	61c <lcd_write_data>
- 886:	02b00513          	li	a0,43
- 88a:	3b49                	jal	61c <lcd_write_data>
- 88c:	456d                	li	a0,27
- 88e:	3379                	jal	61c <lcd_write_data>
- 890:	4571                	li	a0,28
+ 87a:	452d                	li	a0,11
+ 87c:	3345                	jal	61c <lcd_write_data>
+ 87e:	4561                	li	a0,24
+ 880:	3b71                	jal	61c <lcd_write_data>
+ 882:	03400513          	li	a0,52
+ 886:	3b59                	jal	61c <lcd_write_data>
+ 888:	04300513          	li	a0,67
+ 88c:	3b41                	jal	61c <lcd_write_data>
+ 88e:	04a00513          	li	a0,74
  892:	3369                	jal	61c <lcd_write_data>
- 894:	02200513          	li	a0,34
+ 894:	02b00513          	li	a0,43
  898:	3351                	jal	61c <lcd_write_data>
- 89a:	457d                	li	a0,31
+ 89a:	456d                	li	a0,27
  89c:	3341                	jal	61c <lcd_write_data>
- 89e:	02900513          	li	a0,41
- 8a2:	3329                	jal	5ac <lcd_write_reg>
- 8a4:	ba45                	j	254 <__riscv_restore_0>
+ 89e:	4571                	li	a0,28
+ 8a0:	3bb5                	jal	61c <lcd_write_data>
+ 8a2:	02200513          	li	a0,34
+ 8a6:	3b9d                	jal	61c <lcd_write_data>
+ 8a8:	457d                	li	a0,31
+ 8aa:	3b8d                	jal	61c <lcd_write_data>
+ 8ac:	02900513          	li	a0,41
+ 8b0:	39f5                	jal	5ac <lcd_write_reg>
+ 8b2:	b24d                	j	254 <__riscv_restore_0>
 
-000008a6 <EXTI0_IRQHandler>:
- 8a6:	4505                	li	a0,1
- 8a8:	3ec9                	jal	47a <EXTI_ClearFlag>
- 8aa:	200007b7          	lui	a5,0x20000
- 8ae:	00078793          	mv	a5,a5
- 8b2:	239a                	lhu	a4,0(a5)
- 8b4:	6585                	lui	a1,0x1
- 8b6:	40012537          	lui	a0,0x40012
- 8ba:	0742                	slli	a4,a4,0x10
- 8bc:	8341                	srli	a4,a4,0x10
- 8be:	00173713          	seqz	a4,a4
- 8c2:	a39a                	sh	a4,0(a5)
- 8c4:	2392                	lhu	a2,0(a5)
- 8c6:	80058593          	addi	a1,a1,-2048 # 800 <__stack_size>
- 8ca:	80050513          	addi	a0,a0,-2048 # 40011800 <_eusrstack+0x20009800>
- 8ce:	399d                	jal	544 <GPIO_WriteBit>
- 8d0:	30200073          	mret
+000008b4 <EXTI0_IRQHandler>:
+ 8b4:	4505                	li	a0,1
+ 8b6:	36d1                	jal	47a <EXTI_ClearFlag>
+ 8b8:	200007b7          	lui	a5,0x20000
+ 8bc:	00078793          	mv	a5,a5
+ 8c0:	239a                	lhu	a4,0(a5)
+ 8c2:	6585                	lui	a1,0x1
+ 8c4:	40012537          	lui	a0,0x40012
+ 8c8:	0742                	slli	a4,a4,0x10
+ 8ca:	8341                	srli	a4,a4,0x10
+ 8cc:	00173713          	seqz	a4,a4
+ 8d0:	a39a                	sh	a4,0(a5)
+ 8d2:	2392                	lhu	a2,0(a5)
+ 8d4:	80058593          	addi	a1,a1,-2048 # 800 <__stack_size>
+ 8d8:	80050513          	addi	a0,a0,-2048 # 40011800 <_eusrstack+0x20009800>
+ 8dc:	31a5                	jal	544 <GPIO_WriteBit>
+ 8de:	30200073          	mret
 
-000008d4 <TIM6_IRQHandler>:
- 8d4:	4585                	li	a1,1
- 8d6:	40001537          	lui	a0,0x40001
- 8da:	3949                	jal	56c <TIM_ClearFlag>
- 8dc:	200007b7          	lui	a5,0x20000
- 8e0:	00078793          	mv	a5,a5
- 8e4:	239a                	lhu	a4,0(a5)
- 8e6:	6585                	lui	a1,0x1
- 8e8:	40012537          	lui	a0,0x40012
- 8ec:	0742                	slli	a4,a4,0x10
- 8ee:	8341                	srli	a4,a4,0x10
- 8f0:	00173713          	seqz	a4,a4
- 8f4:	a39a                	sh	a4,0(a5)
- 8f6:	2392                	lhu	a2,0(a5)
- 8f8:	80058593          	addi	a1,a1,-2048 # 800 <__stack_size>
- 8fc:	80050513          	addi	a0,a0,-2048 # 40011800 <_eusrstack+0x20009800>
- 900:	3191                	jal	544 <GPIO_WriteBit>
- 902:	30200073          	mret
+000008e2 <TIM6_IRQHandler>:
+ 8e2:	4585                	li	a1,1
+ 8e4:	40001537          	lui	a0,0x40001
+ 8e8:	3151                	jal	56c <TIM_ClearFlag>
+ 8ea:	200007b7          	lui	a5,0x20000
+ 8ee:	00078793          	mv	a5,a5
+ 8f2:	239a                	lhu	a4,0(a5)
+ 8f4:	6585                	lui	a1,0x1
+ 8f6:	40012537          	lui	a0,0x40012
+ 8fa:	0742                	slli	a4,a4,0x10
+ 8fc:	8341                	srli	a4,a4,0x10
+ 8fe:	00173713          	seqz	a4,a4
+ 902:	a39a                	sh	a4,0(a5)
+ 904:	2392                	lhu	a2,0(a5)
+ 906:	80058593          	addi	a1,a1,-2048 # 800 <__stack_size>
+ 90a:	80050513          	addi	a0,a0,-2048 # 40011800 <_eusrstack+0x20009800>
+ 90e:	391d                	jal	544 <GPIO_WriteBit>
+ 910:	30200073          	mret
 
-00000906 <Delay_Ms>:
- 906:	e000f7b7          	lui	a5,0xe000f
- 90a:	43d8                	lw	a4,4(a5)
- 90c:	4681                	li	a3,0
- 90e:	9b79                	andi	a4,a4,-2
- 910:	c3d8                	sw	a4,4(a5)
- 912:	20000737          	lui	a4,0x20000
- 916:	00275703          	lhu	a4,2(a4) # 20000002 <p_ms>
- 91a:	02a70633          	mul	a2,a4,a0
- 91e:	cb90                	sw	a2,16(a5)
- 920:	cbd4                	sw	a3,20(a5)
- 922:	4398                	lw	a4,0(a5)
- 924:	01076713          	ori	a4,a4,16
- 928:	c398                	sw	a4,0(a5)
- 92a:	4398                	lw	a4,0(a5)
- 92c:	02176713          	ori	a4,a4,33
- 930:	c398                	sw	a4,0(a5)
- 932:	43d8                	lw	a4,4(a5)
- 934:	8b05                	andi	a4,a4,1
- 936:	df75                	beqz	a4,932 <Delay_Ms+0x2c>
+00000914 <Delay_Ms>:
+ 914:	e000f7b7          	lui	a5,0xe000f
+ 918:	43d8                	lw	a4,4(a5)
+ 91a:	4681                	li	a3,0
+ 91c:	9b79                	andi	a4,a4,-2
+ 91e:	c3d8                	sw	a4,4(a5)
+ 920:	20000737          	lui	a4,0x20000
+ 924:	00275703          	lhu	a4,2(a4) # 20000002 <p_ms>
+ 928:	02a70633          	mul	a2,a4,a0
+ 92c:	cb90                	sw	a2,16(a5)
+ 92e:	cbd4                	sw	a3,20(a5)
+ 930:	4398                	lw	a4,0(a5)
+ 932:	01076713          	ori	a4,a4,16
+ 936:	c398                	sw	a4,0(a5)
  938:	4398                	lw	a4,0(a5)
- 93a:	9b79                	andi	a4,a4,-2
- 93c:	c398                	sw	a4,0(a5)
- 93e:	8082                	ret
+ 93a:	02176713          	ori	a4,a4,33
+ 93e:	c398                	sw	a4,0(a5)
+ 940:	43d8                	lw	a4,4(a5)
+ 942:	8b05                	andi	a4,a4,1
+ 944:	df75                	beqz	a4,940 <Delay_Ms+0x2c>
+ 946:	4398                	lw	a4,0(a5)
+ 948:	9b79                	andi	a4,a4,-2
+ 94a:	c398                	sw	a4,0(a5)
+ 94c:	8082                	ret
+	...

@@ -59,12 +59,21 @@ void lcd_clear(u16 color);
 void lcd_draw_point(u16 x, u16 y, u16 color);
 void lcd_show_char(u16 x, u16 y, u8 num, u8 size, u8 mode);
 void lcd_show_string(u16 x, u16 y, u16 width, u16 height, u8 *p, u8 size, u8 mode);
-void lcd_show_chinese(u16 x, u16 y, const u8 * ch, u8 size, u8 n, u8 mode);
+void lcd_show_chinese(u16 x, u16 y, const u8 * ch, u16 size, u8 n, u8 mode);
 
 
 void lcd_init(void);
 
-
+//typedef struct
+//{
+//    u16 width;          //LCD 宽度
+//    u16 height;         //LCD 高度
+//    u16 id;             //LCD ID
+//    u8  dir;            //横屏还是竖屏控制：0，竖屏；1，横屏。
+//    u8  wramcmd;        //开始写gram指令
+//    u8  setxcmd;        //设置x坐标指令
+//    u8  setycmd;        //设置y坐标指令
+//}_lcd_dev;
 
 
 

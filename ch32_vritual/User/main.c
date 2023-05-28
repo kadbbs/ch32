@@ -72,16 +72,46 @@ int main(void)
     lcd_init();
     lcd_clear(YELLOW);
 
-//        while(1)
-//        {
-//            lcd_show_string(66, 0, 108, 12, "IoT Board", 24, 1);
-////            lcd_show_chinese(72, 32, pandora_ch, 32, 3, 1);
-//            delay_ms(1000);
-//            lcd_clear(YELLOW);
-//            delay_ms(1000);
+        while(1)
+        {
+//            lcd_show_string(66, 0, 108, 12, "IoT Boardfhuhfuihaiwhfhewfhwhefi", 24, 1);
+//            lcd_show_chinese(72, 32, my_name, 32, 3, 1);
+//            lcd_show_string(66, 0, 108, 24, "IoT Board", 24, 1);
+//            lcd_clear(BLUE);
+//            Delay_Ms(100);
 //
-//        }
-
-    while(1);
+//            lcd_clear(WHITE);
+//            Delay_Ms(100);
+//            lcd_clear(BLACK);
+//            Delay_Ms(100);
+//            lcd_clear(BLUE);
+//            Delay_Ms(100);
+//            lcd_clear(BRED);
+//            Delay_Ms(100);
+//            lcd_clear(GRED);
+//            Delay_Ms(100);
+//            lcd_clear(GBLUE);
+//            Delay_Ms(100);
+//            lcd_clear(RED);
+//            Delay_Ms(100);
+//            lcd_clear(MAGENTA);
+//            Delay_Ms(100);
+//            lcd_clear(GREEN);
+//            Delay_Ms(100);
+//            lcd_clear(CYAN);
+//            Delay_Ms(100);
+//            lcd_clear(YELLOW);
+//            Delay_Ms(100);
+//            lcd_show_chinese(120-16, 160-16, my_name, 32, 1, 1);
+//            lcd_show_chinese(120-16, 160+16,yun, 32, 1, 1);
+//            lcd_show_chinese(0, 0,win_sign, 128, 1, 1);
+//            lcd_show_chinese(0, 0,yehuo, 320, 1, 1);
+//            Draw_Circle(80+64,160,80);
+//            delay_ms(10);
+//            lcd_show_chinese(0, 0,bitmap_sd_bytes, 64, 2, 1);
+//            lcd_show_chinese(32, 0,bitmap_wd_bytes, 64, 2, 1);
+        }
+//
+//    while(1);
 }
 
