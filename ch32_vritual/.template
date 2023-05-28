@@ -1,5 +1,4 @@
 Mcu Type=CH32V30x
-Target Path=obj\CH32V307VCT6.hex
 Address=0x08000000
 Erase All=true
 Program=true
@@ -17,3 +16,4 @@ PeripheralVersion=2.0
 MCU=CH32V307VCT6
 
 CLKSpeed=1
+Target Path=obj/ch32_vritual.hex

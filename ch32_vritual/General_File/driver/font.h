@@ -1,6 +1,11 @@
 #ifndef __FONT_H__
 #define __FONT_H__	 
 
+
+
+
+
+#define array_len(n) sizeof(n)
 //常用ASCII表
 //偏移量32
 //ASCII字符集: !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~
@@ -21,8 +26,19 @@ extern const unsigned char pandora_ch[];
 extern const unsigned char my_name[];
 extern const unsigned char yun[];
 extern const unsigned char win_sign[];
-extern const unsigned char yehuo[];
+extern unsigned char yehuo[];
 extern const unsigned char  bitmap_wd_bytes[];
-extern const unsigned char bitmap_sd_bytes[];
+extern unsigned char bitmap_sd_bytes[];
+extern unsigned char ye[];
+extern unsigned char huo[];
+extern unsigned char shao[];
+extern unsigned char bu[];
+extern unsigned char jin[];
+extern unsigned char chun[];
+extern unsigned char chunfeng[];
+extern unsigned char dao[];
+
+extern unsigned char hello[];
+void zhuanhua(unsigned char *a,int n);
 #endif
 

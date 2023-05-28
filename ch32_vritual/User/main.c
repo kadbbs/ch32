@@ -70,8 +70,9 @@ int main(void)
 //	}
 //    u16 YELLOW=0xff00;
     lcd_init();
-    lcd_clear(YELLOW);
-
+    lcd_clear(RED);
+//    zhuanhua(yehuo,40);
+//    lcd_show_chinese(0, 0,hello, 320, 1, 1);
         while(1)
         {
 //            lcd_show_string(66, 0, 108, 12, "IoT Boardfhuhfuihaiwhfhewfhwhefi", 24, 1);
@@ -106,8 +107,28 @@ int main(void)
 //            lcd_show_chinese(120-16, 160+16,yun, 32, 1, 1);
 //            lcd_show_chinese(0, 0,win_sign, 128, 1, 1);
 //            lcd_show_chinese(0, 0,yehuo, 320, 1, 1);
+            lcd_show_chinese(0, 0,ye, 64, 1, 1);
+            lcd_show_chinese(0, 1,huo, 64, 1, 1);
+            lcd_show_chinese(0, 2,shao, 64, 1, 1);
+            lcd_show_chinese(0, 3,bu, 64, 1, 1);
+            lcd_show_chinese(0, 4,jin, 64, 1, 1);
+//            lcd_show_chinese(64, 0,chun, 32, 1, 1);
+//            lcd_show_chinese(64, 1,chun, 32, 1, 1);
+//            lcd_show_chinese(64, 2,chun, 32, 1, 1);
+//            lcd_show_chinese(64, 3,chun, 32, 1, 1);
+//            lcd_show_chinese(64, 4,chun, 32, 1, 1);
+//            lcd_show_chinese(64, 5,chun, 32, 1, 1);
+//            lcd_show_chinese(64, 6,chun, 32, 1, 1);
+//            lcd_show_chinese(64, 7,chun, 32, 1, 1);
+//            lcd_show_chinese(64, 8,chun, 32, 1, 1);
+//            lcd_show_chinese(64, 9,chun, 32, 1, 1);
+
+            lcd_show_chinese(64, 0,chunfeng, 320, 5, 1);
+            lcd_show_chinese(128, 0,dao, 32*7, 7, 1);
 //            Draw_Circle(80+64,160,80);
 //            delay_ms(10);
+
+//            lcd_show_chinese(0, 0,bitmap_wd_bytes, 16, 2, 1);
 //            lcd_show_chinese(0, 0,bitmap_sd_bytes, 64, 2, 1);
 //            lcd_show_chinese(32, 0,bitmap_wd_bytes, 64, 2, 1);
         }

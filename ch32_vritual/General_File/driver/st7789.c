@@ -313,8 +313,41 @@ void lcd_show_string(u16 x, u16 y, u16 width, u16 height, u8 *p, u8 size, u8 mod
 返回值      : 无
 备注       : 无
 **************************************************************/
+//void lcd_show_chinese(u16 x, u16 y, const u8 * ch, u16 size, u8 n, u8 mode)
+//{
+//    u32 temp, t, t1;
+//    u16 y0 = y;
+//    u32 csize = ((size / 8) + ((size % 8) ? 1 : 0)) * (size) * n;   /* 得到字体字符对应点阵集所占的字节数 */
+//
+//    for(t = 0; t < csize; t++)
+//    {
+//        temp = ch[t];   /* 得到点阵数据 */
+//
+//        for(t1 = 0; t1 < 8; t1++)
+//        {
+//            if(temp & 0x80)
+//            {
+//                lcd_draw_point(x, y, POINT_COLOR);
+//            }
+//            else if(mode==0)
+//            {
+//                lcd_draw_point(x, y, BACK_COLOR);
+//            }
+//            temp <<= 1;
+//            y++;
+//            if((y - y0) == size)
+//            {
+//                y = y0;
+//                x++;
+//                break;
+//            }
+//        }
+//    }
+//}
 void lcd_show_chinese(u16 x, u16 y, const u8 * ch, u16 size, u8 n, u8 mode)
 {
+    u16 x_tmp=x;
+    y=320-(y*size);
     u32 temp, t, t1;
     u16 y0 = y;
     u32 csize = ((size / 8) + ((size % 8) ? 1 : 0)) * (size) * n;   /* 得到字体字符对应点阵集所占的字节数 */
@@ -334,11 +367,13 @@ void lcd_show_chinese(u16 x, u16 y, const u8 * ch, u16 size, u8 n, u8 mode)
                 lcd_draw_point(x, y, BACK_COLOR);
             }
             temp <<= 1;
-            y++;
-            if((y - y0) == size)
+            y--;
+            if((y0-y) == size)
             {
                 y = y0;
                 x++;
+                if(x>(x_tmp+size/n))
+                    return;
                 break;
             }
         }

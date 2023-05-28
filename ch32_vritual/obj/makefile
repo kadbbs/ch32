@@ -41,34 +41,34 @@ endif
 
 # Add inputs and outputs from these tool invocations to the build variables 
 SECONDARY_FLASH += \
-CH32V307VCT6.hex \
+ch32_vritual.hex \
 
 SECONDARY_LIST += \
-CH32V307VCT6.lst \
+ch32_vritual.lst \
 
 SECONDARY_SIZE += \
-CH32V307VCT6.siz \
+ch32_vritual.siz \
 
 
 # 所有目标
-all: CH32V307VCT6.elf secondary-outputs
+all: ch32_vritual.elf secondary-outputs
 
 # 工具调用
-CH32V307VCT6.elf: $(OBJS) $(USER_OBJS)
-	@	@	riscv-none-embed-gcc -march=rv32imacxw -mabi=ilp32 -msmall-data-limit=8 -msave-restore -Os -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -fno-common -Wunused -Wuninitialized  -g -T "C:\MRS_DATA\workspace\ch32_vritual\Ld\Link.ld" -nostartfiles -Xlinker --gc-sections -Wl,-Map,"CH32V307VCT6.map" --specs=nano.specs --specs=nosys.specs -o "CH32V307VCT6.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+ch32_vritual.elf: $(OBJS) $(USER_OBJS)
+	@	@	riscv-none-embed-gcc -march=rv32imacxw -mabi=ilp32 -msmall-data-limit=8 -msave-restore -Os -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -fno-common -Wunused -Wuninitialized  -g -T "C:\MRS_DATA\workspace\ch32_vritual\Ld\Link.ld" -nostartfiles -Xlinker --gc-sections -Wl,-Map,"ch32_vritual.map" --specs=nano.specs --specs=nosys.specs -o "ch32_vritual.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@	@
-CH32V307VCT6.hex: CH32V307VCT6.elf
-	@	riscv-none-embed-objcopy -O ihex "CH32V307VCT6.elf"  "CH32V307VCT6.hex"
+ch32_vritual.hex: ch32_vritual.elf
+	@	riscv-none-embed-objcopy -O ihex "ch32_vritual.elf"  "ch32_vritual.hex"
 	@	@
-CH32V307VCT6.lst: CH32V307VCT6.elf
-	@	riscv-none-embed-objdump --all-headers --demangle --disassemble -M xw "CH32V307VCT6.elf" > "CH32V307VCT6.lst"
+ch32_vritual.lst: ch32_vritual.elf
+	@	riscv-none-embed-objdump --all-headers --demangle --disassemble -M xw "ch32_vritual.elf" > "ch32_vritual.lst"
 	@	@
-CH32V307VCT6.siz: CH32V307VCT6.elf
-	@	riscv-none-embed-size --format=berkeley "CH32V307VCT6.elf"
+ch32_vritual.siz: ch32_vritual.elf
+	@	riscv-none-embed-size --format=berkeley "ch32_vritual.elf"
 	@	@
 # 其他目标
 clean:
-	-$(RM) $(ASM_UPPER_DEPS)$(OBJS)$(SECONDARY_FLASH)$(SECONDARY_LIST)$(SECONDARY_SIZE)$(ASM_DEPS)$(S_DEPS)$(S_UPPER_DEPS)$(C_DEPS) CH32V307VCT6.elf
+	-$(RM) $(ASM_UPPER_DEPS)$(OBJS)$(SECONDARY_FLASH)$(SECONDARY_LIST)$(SECONDARY_SIZE)$(ASM_DEPS)$(S_DEPS)$(S_UPPER_DEPS)$(C_DEPS) ch32_vritual.elf
 	-@
 secondary-outputs: $(SECONDARY_FLASH) $(SECONDARY_LIST) $(SECONDARY_SIZE)
 
